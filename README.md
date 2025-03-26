@@ -46,6 +46,13 @@
 
 ---
 
+
+## 🐍 **Contribution Snake**
+![Snake animation](https://github.com/rashmikanth-tech/rashmikanth-tech/blob/gh-pages/snake.svg)  
+
+---
+
+
 ## 🏅 **Achievements**
 - 🏆 **Cybersecurity Certification** by Cisco & Honeywell  
 - 🎖️ **Java Development Internship at XWorkz**  
@@ -61,11 +68,6 @@
 ## 🌇 **GitHub Skyline**
 ![GitHub Skyline](https://github.com/rashmikanth-tech/skyline/blob/main/2023.png)  
 > _Visualize your contributions in 3D at [GitHub Skyline](https://skyline.github.com)_  
-
----
-
-## 🐍 **Contribution Snake**
-![Snake animation](https://github.com/rashmikanth-tech/rashmikanth-tech/blob/gh-pages/snake.svg)  
 
 ---
 
