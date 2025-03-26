@@ -65,21 +65,19 @@
 
 ---
 
-## 🌇 **GitHub Skyline**
-![GitHub Skyline](https://github.com/rashmikanth-tech/skyline/blob/main/2023.png)  
-> _Visualize your contributions in 3D at [GitHub Skyline](https://skyline.github.com)_  
-
----
-
 ## 🎨 **Fun Extras**
 - 💡 _"Strive not to be a success, but rather to be of value." — Albert Einstein_  
 - 😂 **Random Meme:**  
-![Meme](https://api.memegen.link/images/custom/Your+Code/Works___.png?background=none)  
+![Meme](https://api.memegen.link/images/custom/Keep_Coding/Until_You_Make_It.png?background=https://i.imgur.com/IaO5GmL.jpg)
+
+ 
 
 ---
 
 ## 🏄‍♂️ **Did You Know?**  
-![Random Fact](https://randomfunfacts.com/fact/random.png)  
+[![Random Fact](https://randomfunfacts.com/fact/random.png)](https://www.freakyjolly.com/confetti-explosion-animation/)  
+🎉 **Click here for a surprise!**
+ 
 
 ---
 
@@ -91,11 +89,7 @@
 ---
 
 ## 🎮 **Game On!**
-- 🎮 BGMI Player | Fantasy Sports Enthusiast (Indus BR)  
+- 🎮 BGMI Player | Fantasy Sports Enthusiast | Genshin Impact 
 - 💥 Let’s team up and dominate!  
 
 ---
-
-✅ **Pro Tip:**  
-- Keep updating this README with new projects, memes, and fun facts to engage viewers.  
-- Let me know if you need further customizations! 😊
