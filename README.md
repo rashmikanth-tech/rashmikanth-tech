@@ -10,7 +10,9 @@
 ---
 
 ## ✨ **About Me**
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&duration=3000&pause=1000&color=FF5733&center=false&vCenter=false&width=440&lines=Full-Stack+Java+Developer;Cybersecurity+Enthusiast;Fantasy+Sports+Analyst;Lifelong+Learner+%7C+Fitness+Lover)](https://git.io/typing-svg)  
+<div>
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&duration=3000&pause=1000&color=FF5733&center=false&vCenter=false&width=440&lines=Java+Developer;Cybersecurity+Enthusiast;Fantasy+Sports+Analyst;Lifelong+Learner+%7C+Fitness+Lover)](https://git.io/typing-svg)
+
 
 - 🎓 **Engineering Graduate** in **Information Science** from **PESITM, Shimoga**  
 - 💼 **Intern at XWorkz**  
@@ -65,18 +67,15 @@
 
 ---
 
-## 🎨 **Fun Extras**
-- 💡 _"Strive not to be a success, but rather to be of value." — Albert Einstein_  
-- 😂 **Random Meme:**  
-![Meme](https://api.memegen.link/images/custom/Keep_Coding/Until_You_Make_It.png?background=https://i.imgur.com/IaO5GmL.jpg)
 
- 
+## 💡 _"The code you write today is the blueprint of your future — build it to last."_
 
----
+<p align="center">
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=28&duration=4000&color=00FFAB&background=0D1117&center=true&vCenter=true&width=700&height=60&lines=Code+is+not+just+syntax;It's+a+reflection+of+you;Build+to+last%2C+grow+to+improve." alt="Typing Animation">
+</p>
 
-## 🏄‍♂️ **Did You Know?**  
-[![Random Fact](https://randomfunfacts.com/fact/random.png)](https://www.freakyjolly.com/confetti-explosion-animation/)  
-🎉 **Click here for a surprise!**
+  
+
  
 
 ---
