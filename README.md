@@ -56,8 +56,7 @@
 
 ## 🏅 **Achievements**
 - 🏆 **Cybersecurity Certification** by Cisco & Honeywell  
-- 🎖️ **Java Development Internship at XWorkz**  
-- 🏅 **Advanced Java Workshop Completion**  
+- 🎖️ **Java Development Internship at XWorkz**   
 
 ---
 
