@@ -21,6 +21,9 @@ jobs:
           github_user_name: rashmikanth-tech
           output: dist/snake.svg
 
+      - name: List files in dist (Debugging)
+        run: ls -l dist
+
       - name: Push the snake.svg to the output branch
         uses: peaceiris/actions-gh-pages@v3
         with:
