@@ -10,7 +10,6 @@
 ---
 
 ## ✨ **About Me**
-<div>
 [![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&duration=3000&pause=1000&color=FF5733&center=false&vCenter=false&width=440&lines=Java+Developer;Cybersecurity+Enthusiast;Fantasy+Sports+Analyst;Lifelong+Learner+%7C+Fitness+Lover)](https://git.io/typing-svg)
 
 
