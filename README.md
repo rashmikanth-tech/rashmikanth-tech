@@ -65,7 +65,7 @@
 ---
 
 ## 🐍 **Contribution Snake**
-![Snake animation](https://github.com/rashmikanth-tech/rashmikanth-tech/blob/output/github-contribution-grid-snake.svg)  
+![Snake animation](https://github.com/rashmikanth-tech/rashmikanth-tech/blob/gh-pages/snake.svg)  
 
 ---
 
