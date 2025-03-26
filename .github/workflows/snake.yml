@@ -1,13 +1,15 @@
-name: Generate Snake
+name: Generate Snake Animation
 
 on:
   schedule:
-    - cron: "0 0 * * *"  # Runs every day at midnight
+    # Runs at 5 AM IST every day
+    - cron: "0 23 * * *"
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v3
@@ -19,14 +21,10 @@ jobs:
         uses: Platane/snk@v3
         with:
           github_user_name: rashmikanth-tech
-          output: dist/snake.svg
+          outputs: dist/snake.svg
 
-      - name: List files in dist (Debugging)
-        run: ls -l dist
-
-      - name: Push the snake.svg to the output branch
+      - name: Push the Snake Animation to the output branch
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
-          publish_branch: output
