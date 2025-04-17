@@ -10,14 +10,14 @@
 ---
 
 ## ✨ **About Me**
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&duration=3000&pause=1000&color=FF5733&center=false&vCenter=false&width=440&lines=Java+Developer;Cybersecurity+Enthusiast;Fantasy+Sports+Analyst;Lifelong+Learner+%7C+Fitness+Lover)](https://git.io/typing-svg)
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&duration=3000&pause=1000&color=FF5733&center=false&vCenter=false&width=440&lines=Java+Developer;Cybersecurity+Enthusiast;Lifelong+Learner+%7C+Fitness+Lover)](https://git.io/typing-svg)
 
 
-- 🎓 **Engineering Graduate** in **Information Science** from **PESITM, Shimoga**  
+- 🎓 **To be Graduate** in **Information Science** from **PESITM, Shimoga**  
 - 💼 **Intern at XWorkz**  
 - 🚀 Passionate about **Java, Spring Boot, Full-Stack Development**  
-- 🌱 **Currently Learning:** Latest Web Technologies & Spring Boot  
-- 🎮 **Fun Fact:** I enjoy **Fantasy Sports**, **Fitness**, and **Gaming**!  
+- 🌱 **Currently Learning:** Latest Web Technologies & Java 
+- 🎮 **Fun Fact:** I enjoy **Coding**, **Fitness**, and **Gaming**!  
 - 🔍 **Hobbies:** Chess ♟️ | Gaming 🎮 | Gym 🏋️
 
 ---
@@ -86,7 +86,7 @@
 ---
 
 ## 🎮 **Game On!**
-- 🎮 BGMI Player | Fantasy Sports Enthusiast | Genshin Impact 
+- 🎮 BGMI Player | Genshin Impact 
 - 💥 Let’s team up and dominate!  
 
 ---
