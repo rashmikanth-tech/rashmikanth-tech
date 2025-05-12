@@ -3,8 +3,9 @@
 ### 🏗️ **Java Developer | Intern at XWorkz | Tech Enthusiast**  
 
 ![Profile Views](https://komarev.com/ghpvc/?username=rashmikanth-tech&color=blue)  
-[![LinkedIn](https://img.shields.io/badge/-LinkedIn-blue?style=flat&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/rashmikanth)  
-[![Gmail Badge](https://img.shields.io/badge/-grrashmikanth@gmail.com-red?style=flat&logo=Gmail&logoColor=white)](mailto:grrashmikanth@gmail.com)  
+[![LinkedIn](https://img.shields.io/badge/-LinkedIn-blue?style=flat&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/rashmikanth-g-r/)  
+[![Gmail Badge](https://img.shields.io/badge/-grrashmikanth@gmail.com-red?style=flat&logo=Gmail&logoColor=white)](mailto:grrashmikanth@gmail.com) 
+[![Twitter](https://img.shields.io/badge/-Twitter-1DA1F2?style=flat&logo=twitter&logoColor=white)](https://twitter.com/@RashmikanthNaik)
 [![Facebook](https://img.shields.io/badge/-Facebook-1877F2?style=flat&logo=facebook&logoColor=white)](https://www.facebook.com/rashmikanth.gr.39/)  
 
 ---
@@ -79,10 +80,10 @@
 ---
 
 ## 📫 **Let's Connect**
-- 🔗 [**LinkedIn**](https://www.linkedin.com/in/rashmikanth)  
-- 📧 **Email:** grrashmikanth@gmail.com  
-- 🌍 [**Facebook Profile**](https://www.facebook.com/rashmikanth.gr.39/)  
-
+🔗 [![LinkedIn](https://img.shields.io/badge/-LinkedIn-blue?style=flat&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/rashmikanth-g-r/)  
+📧 [![Gmail](https://img.shields.io/badge/-grrashmikanth@gmail.com-red?style=flat&logo=Gmail&logoColor=white)](mailto:grrashmikanth@gmail.com)  
+🐦 [![Twitter](https://img.shields.io/badge/-Twitter-1DA1F2?style=flat&logo=Twitter&logoColor=white)](https://twitter.com/@RashmikanthNaik)  
+🌍 [![Facebook](https://img.shields.io/badge/-Facebook-1877F2?style=flat&logo=Facebook&logoColor=white)](https://www.facebook.com/rashmikanth.gr.39/)
 ---
 
 ## 🎮 **Game On!**
