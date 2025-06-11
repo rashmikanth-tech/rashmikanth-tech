@@ -14,7 +14,7 @@
 [![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&duration=3000&pause=1000&color=FF5733&center=false&vCenter=false&width=440&lines=Java+Developer;Cybersecurity+Enthusiast;Lifelong+Learner+%7C+Fitness+Lover)](https://git.io/typing-svg)
 
 
-- 🎓 **To be Graduate** in **Information Science** from **PESITM, Shimoga**  
+- 🎓 **Graduated** in **Information Science** from **PESITM, Shimoga**  
 - 💼 **Intern at XWorkz**  
 - 🚀 Passionate about **Java, Spring Boot, Full-Stack Development**  
 - 🌱 **Currently Learning:** Latest Web Technologies & Java 
