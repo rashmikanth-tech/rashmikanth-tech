@@ -39,8 +39,8 @@
 
 <table>
 <tr>
-<td><img src="https://github-readme-stats.vercel.app/api?username=rashmikanth-tech&show_icons=true&theme=radical" height="180em" /></td>
-<td><img src="https://github-readme-streak-stats.herokuapp.com/?user=rashmikanth-tech&theme=radical" height="180em" /></td>
+<td><img src="https://github-readme-stats.vercel.app/api?username=rashmikanth-tech&show_icons=true&theme=radical" alt="GitHub Stats" height="180em" /></td>
+<td><img src="https://streak-stats.demolab.com?user=rashmikanth-tech&theme=radical" height="180em" alt="Streak Stats"/></td>
 </tr>
 </table>
 
