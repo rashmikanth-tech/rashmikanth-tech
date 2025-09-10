@@ -1,6 +1,6 @@
 ## 👋 **Hi there!**  
 # 🚀 **Hi, I'm Rashmikanth!**  
-### 🏗️ **Java Developer | Intern at XWorkz | Tech Enthusiast**  .
+### 🏗️ **Java Developer | Tech Enthusiast**  .
 
 ![Profile Views](https://komarev.com/ghpvc/?username=rashmikanth-tech&color=blue)  
 [![LinkedIn](https://img.shields.io/badge/-LinkedIn-blue?style=flat&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/rashmikanth-g-r/)  
