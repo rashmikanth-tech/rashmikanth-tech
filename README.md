@@ -64,8 +64,9 @@ https://github.com/rashmikanth-tech
 </tr>
 </table>
 
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=rashmikanth-tech&layout=compact&theme=radical&langs_count=8)
-  
+## 📊 Top Languages
+
+![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=rashmikanth-tech&layout=compact&theme=radical&langs_count=8)  
 
 ---
 
