@@ -59,8 +59,12 @@ https://github.com/rashmikanth-tech
 
 <table>
 <tr>
-<td><img src="![GitHub Stats](https://github-readme-stats.vercel.app/api?username=rashmikanth-tech&show_icons=true&theme=radical&cache_seconds=86400)" alt="GitHub Stats" height="180em" /></td>
-<td><img src="https://streak-stats.demolab.com?user=rashmikanth-tech&theme=radical" height="180em" alt="Streak Stats"/></td>
+<td>
+  <img src="https://github-readme-stats.vercel.app/api?username=rashmikanth-tech&show_icons=true&theme=radical&cache_seconds=1800" height="180em" alt="GitHub Stats" />
+</td>
+<td>
+  <img src="https://streak-stats.demolab.com?user=rashmikanth-tech&theme=radical&cache_seconds=1800" height="180em" alt="Streak Stats" />
+</td>
 </tr>
 </table>
 
