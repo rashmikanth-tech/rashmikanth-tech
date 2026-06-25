@@ -64,6 +64,12 @@
 ![OpenAI](https://img.shields.io/badge/OpenAI-412991?style=for-the-badge\&logo=openai\&logoColor=white)
 ![Claude](https://img.shields.io/badge/Claude-D97757?style=for-the-badge)
 
+![OneSignal](https://img.shields.io/badge/OneSignal-EF3D5B?style=for-the-badge&logo=onesignal&logoColor=white)
+![XAMPP](https://img.shields.io/badge/XAMPP-FB7A24?style=for-the-badge&logo=xampp&logoColor=white)
+![Xcode](https://img.shields.io/badge/Xcode-147EFB?style=for-the-badge&logo=xcode&logoColor=white)
+![Google AdMob](https://img.shields.io/badge/Google_AdMob-EA4335?style=for-the-badge&logo=google&logoColor=white)
+![Google Ad Manager](https://img.shields.io/badge/Google_Ad_Manager-4285F4?style=for-the-badge&logo=google&logoColor=white)
+
 </p>
 
 ---
