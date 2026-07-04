@@ -1,6 +1,6 @@
 ## 👋 **Hi there!**  
 # 🚀 **Hi, I'm Rashmikanth!**  
-### 🏗️ **Java Developer | Tech Enthusiast**  .
+### 🏗️ **Full-Stack Developer | Flutter, React & Node.js**  .
 
 ![Profile Views](https://komarev.com/ghpvc/?username=rashmikanth-tech&color=blue)  
 [![LinkedIn](https://img.shields.io/badge/-LinkedIn-blue?style=flat&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/rashmikanth-g-r/)  
@@ -10,9 +10,8 @@
 
 ---
 
-## ✨ **About Me**
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&duration=3000&pause=1000&color=FF5733&center=false&vCenter=false&width=440&lines=Java+Developer;Cybersecurity+Enthusiast;Lifelong+Learner+%7C+Fitness+Lover)](https://git.io/typing-svg)
-
+## Professional Summary
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&duration=3000&pause=1000&color=FF5733&width=650&lines=Full-Stack+Developer;Flutter+Mobile+App+Developer;React+%7C+Node.js+%7C+Java+Developer;Building+Scalable+Web+%26+Mobile+Applications)](https://git.io/typing-svg)
 
 -Full-Stack Developer focused on building scalable web, mobile, and cloud applications using modern technologies, clean architecture, and efficient development practices.
 
