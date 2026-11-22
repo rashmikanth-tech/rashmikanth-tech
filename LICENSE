@@ -1,0 +1,31 @@
+Copyright (c) 2026 Rashmikanth G R (https://github.com/rashmikanth-tech)
+
+This repository has two parts under two licenses. Both require credit.
+
+1. Artwork and game design: CC BY 4.0
+   The ninja fight animation (assets/ninja.svg), its characters (the ninja and the boss "THE BUG"),
+   its look and its choreography are licensed under Creative Commons Attribution 4.0 International
+   (https://creativecommons.org/licenses/by/4.0/).
+   You may share and adapt them, but you must give credit, keep it visible, link back, and say if you
+   changed anything. Suggested credit:
+       Ninja fight animation by Rashmikanth G R (https://github.com/rashmikanth-tech)
+
+2. Code: MIT License
+   The scripts and workflows (scripts/, .github/workflows/) are licensed under the MIT License:
+
+   Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
+   associated documentation files (the "Software"), to deal in the Software without restriction,
+   including without limitation the rights to use, copy, modify, merge, publish, distribute,
+   sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is
+   furnished to do so, subject to the following conditions:
+
+   The above copyright notice and this permission notice shall be included in all copies or
+   substantial portions of the Software.
+
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT
+   NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+   NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+   DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT
+   OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+The rest of the profile (README text, project descriptions) is all rights reserved.

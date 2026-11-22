@@ -1,3 +1,5 @@
+# Copyright (c) 2026 Rashmikanth G R (https://github.com/rashmikanth-tech)
+# Code: MIT. The animation, its characters and design: CC BY 4.0, credit required. See LICENSE.
 """Draws assets/ninja.svg: a ninja fights your programming languages and a boss; the score climbs to your real contribution count.
 
 Usage:  python scripts/ninja.py      # needs GH_TOKEN (the Action's GITHUB_TOKEN works)
@@ -525,6 +527,7 @@ def build(total, year, streak, mix):
     style = "\n".join(css)
     return f'''<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" aria-label="A ninja fights programming languages; the score climbs to {total_s} contributions ({year_s} this year).">
 <title>{total_s} contributions, {year_s} this year</title>
+<metadata>Ninja fight animation (c) 2026 Rashmikanth G R, https://github.com/rashmikanth-tech. Licensed CC BY 4.0: credit required. https://github.com/rashmikanth-tech/rashmikanth-tech/blob/main/LICENSE</metadata>
 <defs>
   <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#070b18"/><stop offset="1" stop-color="#1a2340"/></linearGradient>
   <linearGradient id="blade" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#38bdf8" stop-opacity="0"/><stop offset=".5" stop-color="#e0f2fe"/><stop offset="1" stop-color="#ffffff"/></linearGradient>
@@ -549,6 +552,7 @@ def build(total, year, streak, mix):
 {"".join(body)}
 </g>
 <rect class="flash" width="{W}" height="{H}" fill="#fff" opacity="0"/>
+<text x="{W - 16}" y="{H - 12}" text-anchor="end" font-family="Segoe UI,Helvetica,Arial,sans-serif" font-size="10.5" fill="#9fb3c8" opacity=".55">© Rashmikanth G R · github.com/rashmikanth-tech</text>
 <g font-family="Segoe UI,Helvetica,Arial,sans-serif">
   <text x="26" y="34" font-size="12" font-weight="700" fill="#7dd3fc" letter-spacing="2">NINJA RANK</text>
   <text x="26" y="66" font-size="28" font-weight="900" fill="#ffffff">LV {level}</text>
