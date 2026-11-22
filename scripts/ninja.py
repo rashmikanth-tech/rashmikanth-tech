@@ -487,32 +487,17 @@ LIFE = [("😴", "SLEEP"), ("🎉", "WEEKENDS"), ("👥", "FRIENDS"), ("❤️",
 
 
 def life(css, losses):
-    """The LIFE inventory under the rank. At each (time, x, y) in `losses` the next item rises out of the ninja's body
-    at (x, y), drifts away and fades; a LOST banner shows and the item is crossed out."""
-    out = ['<text x="26" y="106" font-family="Segoe UI,Helvetica,Arial,sans-serif" font-size="10" font-weight="700" fill="#fda4af" letter-spacing="1.5">LIFE</text>']
+    """At each (time, x, y) in `losses` the next LIFE item rises out of the ninja's body at (x, y), drifts away and fades."""
+    out = []
     for k, ((icon, name), (t, bx, by)) in enumerate(zip(LIFE, losses)):
-        x = 72 + k * 40
-        css.append(kf(f"have{k}", [(t, "opacity:1"), (t + .15, "opacity:.22")], loop=False, first="opacity:1")
-                   + f" .have{k}{{animation:have{k} {T}s infinite linear}}")
-        css.append(kf(f"strike{k}", [(t + .1, "transform: scaleX(0)"), (t + .3, "transform: scaleX(1)")], loop=False, first="transform: scaleX(0)")
-                   + f" .strike{k}{{animation:strike{k} {T}s infinite ease-out}}")
         css.append(kf(f"gone{k}", [(t - .001, f"transform: translate({bx}px,{by}px) scale(.6); opacity:0"),
                                    (t + .05, f"transform: translate({bx}px,{by - 12}px) scale(1.3); opacity:1"),
                                    (t + .8, f"transform: translate({bx + 18}px,{by - 70}px) scale(1.7); opacity:.9"),
                                    (t + 1.8, f"transform: translate({bx + 40}px,{by - 135}px) scale(1.9); opacity:0")], loop=False)
                    + f" .gone{k}{{animation:gone{k} {T}s infinite ease-out}}")
-        css.append(kf(f"lostt{k}", [(t, "opacity:0"), (t + .1, "opacity:1"), (t + 1.1, "opacity:1"), (t + 1.6, "opacity:0")], loop=False)
-                   + f" .lostt{k}{{animation:lostt{k} {T}s infinite linear}}")
-        css.append(kf(f"lost{k}", [(t + .2, "transform: scale(.4); opacity:0"), (t + .32, "transform: scale(1.15); opacity:1"),
-                                   (t + .45, "transform: scale(1); opacity:1"), (t + 1.1, "transform: scale(1); opacity:0")], loop=False)
-                   + f" .lost{k}{{animation:lost{k} {T}s infinite ease-out}}")
-        out.append(f'''<g transform="translate({x},100)"><text class="have{k}" text-anchor="middle" y="6" font-size="17">{icon}</text>
-    <text class="have{k}" text-anchor="middle" y="19" font-family="Segoe UI,Helvetica,Arial,sans-serif" font-size="7" font-weight="700" fill="#cbd5e1">{name}</text>
-    <path class="strike{k}" d="M-11,-9 L11,9" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round" transform-origin="-11 -9"/></g>
-  <g class="gone{k}" opacity="0"><circle r="15" fill="#fda4af" opacity=".25" filter="url(#glow)"/><text text-anchor="middle" y="6" font-size="17">{icon}</text>
-    <text class="lostt{k}" y="-18" text-anchor="middle" font-family="Segoe UI,Helvetica,Arial,sans-serif" font-size="7" font-weight="800" fill="#fda4af">{name.lower()}</text></g>
-  <g transform="translate({W // 2},120)"><g class="lost{k}" opacity="0" text-anchor="middle" font-family="Impact,Segoe UI Black,Arial Black,sans-serif" font-style="italic">
-    <text font-size="22" fill="#fda4af" stroke="#1f0510" stroke-width="5" paint-order="stroke">LOST: {name}</text></g></g>''')
+        out.append(f'''<g class="gone{k}" opacity="0"><circle r="15" fill="#fda4af" opacity=".25" filter="url(#glow)"/>
+    <text text-anchor="middle" y="6" font-size="17">{icon}</text>
+    <text y="-18" text-anchor="middle" font-family="Segoe UI,Helvetica,Arial,sans-serif" font-size="7" font-weight="800" fill="#fda4af">{name.lower()}</text></g>''')
     return "".join(out)
 
 
