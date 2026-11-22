@@ -1,9 +1,9 @@
 name: Generate Snake Animation
 
 on:
-  schedule:
-    # Runs at 5 AM IST every day
-    - cron: "0 23 * * *"
+  # Daily schedule turned off with the snake; run it by hand from the Actions tab if you bring it back.
+  # schedule:
+  #   - cron: "0 23 * * *"
   workflow_dispatch:
 
 jobs:

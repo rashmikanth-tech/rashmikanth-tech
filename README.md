@@ -4,7 +4,7 @@
 
 <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&duration=2800&pause=900&color=00C2FF&center=true&vCenter=true&width=680&lines=AI+products+with+Claude%2C+OpenAI+%26+Gemini;Claude+Code+%2B+MCP+in+daily+development;9+Flutter+apps+built+for+Google+Play;Messenger%2C+dating%2C+creator-marketing+platforms;Go+%C2%B7+FastAPI+%C2%B7+Node.js+%C2%B7+Next.js+backends;Self-hosted+on+Docker+%2B+nginx+%2B+Cloudflare" alt="Typing SVG" /></a>
 
-<img src="assets/ninja.svg" width="100%" alt="A ninja slicing programming languages, with my total GitHub contributions as the score" />
+<img src="assets/ninja.svg" width="100%" alt="A ninja fights my programming languages and a boss; the score climbs to my total GitHub contributions" />
 
 <p>
   <a href="https://www.linkedin.com/in/rashmikanth-g-r/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" /></a>
@@ -229,14 +229,18 @@ Mobile apps I have built and shipped with Flutter.
 <div align="center">
   <img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=rashmikanth-tech&layout=compact&langs_count=8&theme=tokyonight&hide_border=true" />
   <br/>
-  <img src="https://streak-stats.demolab.com?user=rashmikanth-tech&theme=tokyonight&hide_border=true" />
-  <br/>
   <img width="100%" src="https://github-readme-activity-graph.vercel.app/graph?username=rashmikanth-tech&theme=tokyo-night&hide_border=true&area=true" />
 </div>
 
 <div align="center">
+  <img src="assets/stats.svg" width="100%" alt="Total contributions, current streak and longest streak" />
+</div>
+
+<!-- Contribution snake, turned off:
+<div align="center">
   <img src="https://raw.githubusercontent.com/rashmikanth-tech/rashmikanth-tech/gh-pages/snake.svg" alt="Contribution snake" />
 </div>
+-->
 
 ---
 

@@ -48,7 +48,7 @@ def stats():
     while days.get(day.isoformat()):
         streak += 1
         day -= dt.timedelta(days=1)
-    return sum(per_year.values()), per_year[today.year], streak, languages()
+    return sum(per_year.values()), per_year[today.year], streak, languages(), days
 
 
 def languages():
@@ -121,7 +121,7 @@ LANG = {
     "C": ("#555555", "#ffffff", "C"),
 }
 MAX_ORBS = 20
-BOSS_SHARE = 0.15   # the boss's three hits are worth 15% of the score; languages share the rest by bytes of code
+BOSS_SHARE = 0.2    # the boss's ten hits are worth 20% of the score; languages share the rest by bytes of code
 
 
 def look(name, colour):
@@ -169,7 +169,7 @@ def setup(mix, seed):
             events.append(("double", names.pop(), names.pop()))
     EVENTS = events
     TB = 0.05 + SLOT * len(EVENTS) + 0.3       # the boss arrives
-    HITS = [TB + 1.75, TB + 2.5, TB + 3.2]     # dash slash, flip slash, spin finisher
+    HITS = [TB + h for h in HIT_AT]
     T = HITS[-1] + 2.1                         # then GAME CLEAR, then the round restarts
     return mix
 
@@ -182,6 +182,14 @@ def setup(mix, seed):
 # Then the boss fight: THE BUG drops in, spits a fireball, and takes three hits.
 SLOT = 0.75         # seconds per move
 BX = 680            # boss x
+# The boss fight, in seconds after the boss lands (TB). Phase 1, then ENRAGED at 6.3.
+HIT_AT = [1.75, 2.5, 4.2, 5.9, 8.1, 8.7, 10.4, 11.1, 11.3, 11.5]   # the ninja's 10 hits; the last is the K.O.
+FIRE_AT = [0.95, 6.8, 7.25]      # fireballs (the ninja jumps each one)
+SLAM_AT = [3.0, 9.1]             # ground slams: the boss leaps, lands 0.4s later, a shockwave rolls left
+CHARGE_AT = 4.6                  # the boss rams the ninja
+HURT_AT = [4.78, 9.67]           # the ninja is hit: by the charge, then by the second shockwave
+STORM_AT = [5.5, 5.6, 5.7]       # shuriken storm
+ENRAGE_AT = 6.3
 EVENTS, TB, HITS, T = [], 0, [], 1
 REACH = 46          # how far from the ninja a charging orb is cut
 
@@ -282,30 +290,52 @@ def choreograph(g=None):
             sword += [(t0 + 0.2, "transform: rotate(-35deg)"), (tc - 0.15, "transform: rotate(0deg)"), (tc + 0.12, "transform: rotate(0deg)"),
                       (t0 + 0.72, "transform: rotate(-35deg)")]
             words.append((tc, "DOUBLE KILL!"))
-    # boss fight
-    h1, h2, h3 = HITS
+    # boss fight (see HIT_AT and friends for the script)
     G = GROUND
 
-    def at(t, x, y=G):
-        pos.append((t, f"transform: translate({x}px,{y}px)"))
+    def r(x):
+        return TB + x
+
+    def at(x, nx, y=G):
+        pos.append((r(x), f"transform: translate({nx}px,{y}px)"))
+
+    def turn(x, deg):
+        flip.append((r(x), f"transform: rotate({deg}deg)"))
+
+    def arm(x, deg):
+        sword.append((r(x), f"transform: rotate({deg}deg)"))
+
     face.append((TB, "transform: scaleX(1)"))
-    at(TB + 0.1, g); at(TB + 0.45, 260)
-    at(TB + 1.12, 260); at(TB + 1.27, 260, G - 72); at(TB + 1.45, 260)          # jump the fireball
-    at(h1 - 0.1, 300); at(h1, BX - 95); at(h1 + 0.25, 470)                        # dash slash
-    at(h2 - 0.3, 470); at(h2, BX - 70, G - 120); at(h2 + 0.08, BX - 50, G - 110); at(h2 + 0.4, 470)
-    at(h3 - 0.3, 470); at(h3, BX - 80, G - 45); at(h3 + 0.35, 450)
-    tv = h3 + 0.7
-    at(tv, 450); at(tv + 0.18, 450, G - 40); at(tv + 0.36, 450)                  # victory hop
-    flip += [(h2 - 0.3, "transform: rotate(0deg)"), (h2 - 0.05, "transform: rotate(360deg)"), (h2 - 0.049, "transform: rotate(0deg)"),
-             (h3 - 0.25, "transform: rotate(0deg)"), (h3 + 0.1, "transform: rotate(720deg)"), (h3 + 0.101, "transform: rotate(0deg)"),
-             (tv, "transform: rotate(0deg)"), (tv + 0.36, "transform: rotate(-360deg)"), (tv + 0.361, "transform: rotate(0deg)")]
-    sword += [(TB + 0.1, "transform: rotate(-35deg)"),
-              (h1 - 0.15, "transform: rotate(-35deg)"), (h1 - 0.05, "transform: rotate(-160deg)"), (h1 + 0.04, "transform: rotate(40deg)"),
-              (h2 - 0.25, "transform: rotate(-150deg)"), (h2 - 0.03, "transform: rotate(-170deg)"), (h2 + 0.05, "transform: rotate(45deg)"),
-              (h3 - 0.25, "transform: rotate(0deg)"), (h3 + 0.1, "transform: rotate(0deg)"), (h3 + 0.35, "transform: rotate(-35deg)"),
-              (tv, "transform: rotate(-35deg)"), (tv + 0.2, "transform: rotate(-95deg)"), (tv + 0.9, "transform: rotate(-95deg)"),
-              (tv + 1.1, "transform: rotate(-35deg)")]
-    words += [(h1, "HIT!"), (h2, "CRITICAL!"), (h3, "K.O.!")]
+    for x, nx, *y in [(.1, g), (.45, 260), (1.12, 260), (1.27, 260, G - 72), (1.45, 260),        # jump the fireball
+                      (1.65, 300), (1.75, BX - 95), (2.0, 470),                                     # hit 1: dash
+                      (2.2, 470), (2.5, BX - 70, G - 120), (2.58, BX - 50, G - 110), (2.9, 470),     # hit 2: flip slash
+                      (3.42, 470), (3.55, 470, G - 60), (3.68, 470),                                # jump the shockwave
+                      (4.05, 470), (4.2, BX - 95), (4.4, 420),                                      # hit 3
+                      (4.6, 420), (4.78, 420), (4.95, 200, G - 50), (5.15, 130),                    # rammed, knocked flying
+                      (5.45, 130), (5.6, 130, G - 30), (5.8, 130),                                  # shuriken storm
+                      (6.3, 130), (6.7, 260),
+                      (7.0, 260), (7.15, 260, G - 75), (7.3, 260), (7.45, 260), (7.6, 260, G - 90), (7.75, 260),  # double fireball
+                      (7.85, 260), (8.1, BX - 70, G - 120), (8.18, BX - 50, G - 110), (8.45, 470),  # hit 5
+                      (8.6, 470), (8.7, BX - 95), (8.95, 430),                                      # hit 6
+                      (9.6, 430), (9.67, 430), (9.85, 300, G - 60), (10.0, 250),                    # caught by the shockwave
+                      (10.05, 250), (10.4, BX - 70, G - 120), (10.48, BX - 50, G - 110), (10.8, 470),  # hit 7
+                      (10.95, 470), (11.1, BX - 95), (11.3, BX - 80, G - 60), (11.5, BX - 60, G - 100), (11.85, 450),  # final combo
+                      (12.2, 450), (12.38, 450, G - 40), (12.56, 450)]:                            # victory hop
+        at(x, nx, *y)
+    for x, deg in [(2.2, 0), (2.45, 360), (2.451, 0), (4.78, 0), (5.15, -360), (5.151, 0), (7.85, 0), (8.05, 360), (8.051, 0),
+                   (9.67, 0), (10.0, -360), (10.001, 0), (10.05, 0), (10.35, 360), (10.351, 0), (11.15, 0), (11.5, 1080), (11.501, 0),
+                   (12.2, 0), (12.56, -360), (12.561, 0)]:
+        turn(x, deg)
+    arm(.1, -35)
+    for h in (1.75, 2.5, 4.2, 8.1, 8.7, 10.4):
+        arm(h - .12, -160); arm(h + .04, 40); arm(h + .2, -35)
+    for x, deg in [(5.45, -35), (5.5, -120), (5.55, 30), (5.6, -120), (5.65, 30), (5.7, -120), (5.75, 30), (5.95, -35),
+                   (11.0, -35), (11.1, 40), (11.2, -160), (11.3, 40), (11.4, -160), (11.5, 40), (11.85, -35),
+                   (12.2, -35), (12.4, -95), (13.1, -95), (13.3, -35)]:
+        arm(x, deg)
+    words += [(r(x), w) for x, w in [(1.75, "HIT!"), (2.5, "SLASH!"), (4.2, "HIT!"), (4.8, "OUCH!"), (5.9, "SHURIKEN STORM!"),
+                                     (6.3, "ENRAGED!"), (8.1, "CRITICAL!"), (8.7, "HIT!"), (9.7, "DANGER!"), (10.4, "CRITICAL!"),
+                                     (11.5, "K.O.!")]]
     g = 450
     return orbs, words, stars, (pos, flip, face, sword), g
 
@@ -354,50 +384,90 @@ BOSS = '''<ellipse cx="0" cy="2" rx="74" ry="8" fill="#000" opacity=".45"/>
 
 
 def boss(css, shake, flash):
-    """THE BUG: drops in, bobs, spits a fireball, recoils from each hit, then explodes. Has an HP bar."""
-    h1, h2, h3 = HITS
+    """THE BUG: drops in, spits fireballs, slams the ground, charges, enrages at half health, recoils from each hit,
+    and explodes on the tenth. Has an HP bar."""
+    import math
+    G = GROUND
+    last = HITS[-1]
     a = f"{T}s infinite"
-    hidden = "transform: translate(0px,-340px) scale(1); opacity:0"
-    frames = [(TB - 0.001, hidden), (TB, "transform: translate(0px,-340px) scale(1); opacity:1; animation-timing-function: cubic-bezier(.5,0,1,.6)"),
-              (TB + 0.35, "transform: translate(0px,0px) scale(1); opacity:1")]
-    for h in HITS:
-        frames += [(h, "transform: translate(0px,0px) scale(1); opacity:1"), (h + 0.05, "transform: translate(16px,0px) scale(1); opacity:1"),
-                   (h + 0.2, "transform: translate(0px,0px) scale(1); opacity:1")]
-    frames = [f for f in frames if f[0] < h3 + 0.02] + [(h3 + 0.02, "transform: translate(0px,0px) scale(1); opacity:1"),
-                                                        (h3 + 0.3, "transform: translate(0px,0px) scale(1.35); opacity:0"), (h3 + 0.302, hidden)]
+
+    def r(x):
+        return TB + x
+
+    def bt(x, y=0, sc=1, op=1, ease=""):
+        return f"transform: translate({x}px,{y}px) scale({sc}); opacity:{op}" + (f"; animation-timing-function: {ease}" if ease else "")
+    hidden = bt(0, -340, 1, 0)
+    frames = [(TB - 0.001, hidden), (TB, bt(0, -340, ease="cubic-bezier(.5,0,1,.6)")), (r(.35), bt(0))]
+    for k, h in enumerate(HITS[:-1]):                       # knocked back by each hit
+        d = min(0.18, HITS[k + 1] - h - 0.01)
+        frames += [(h, bt(0)), (h + 0.05, bt(16)), (h + d, bt(0))]
+    for sl in SLAM_AT:                                      # leap and slam
+        frames += [(r(sl), bt(0, 0, ease="cubic-bezier(.2,.8,.4,1)")), (r(sl + .2), bt(0, -90, ease="cubic-bezier(.6,0,1,.4)")), (r(sl + .4), bt(0))]
+    frames += [(r(CHARGE_AT), bt(0, ease="cubic-bezier(.6,0,1,.6)")), (r(CHARGE_AT + .3), bt(-300)), (r(CHARGE_AT + .4), bt(-300)),
+               (r(CHARGE_AT + 1.0), bt(0))]
+    frames += [(r(ENRAGE_AT + k * .05), bt((0, -6, 6, -6, 6, 0)[k])) for k in range(6)]   # trembles with rage
+    frames += [(last + 0.02, bt(0)), (last + 0.3, bt(0, 0, 1.35, 0)), (last + 0.302, hidden)]
     css.append(kf("boss", frames, loop=False, first=hidden) + f" .boss{{animation:boss {a} linear}}")
-    css.append(kf("bflash", [f for h in HITS for f in [(h, "opacity:0"), (h + 0.02, "opacity:.9"), (h + 0.14, "opacity:0")]], loop=False)
+    css.append(kf("bflash", [f for h in HITS for f in [(h, "opacity:0"), (h + 0.02, "opacity:.9"), (h + 0.12, "opacity:0")]], loop=False)
                + f" .bflash{{animation:bflash {a} linear}}")
+    css.append(kf("rage", [(r(ENRAGE_AT), "opacity:0"), (r(ENRAGE_AT + .05), "opacity:.9"), (r(ENRAGE_AT + .4), "opacity:.45"),
+                           (last + 0.02, "opacity:.45"), (last + 0.3, "opacity:0")], loop=False) + f" .rage{{animation:rage {a} linear}}")
     css.append("@keyframes bob { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-5px) } } .bob{animation:bob .5s infinite ease-in-out}")
-    css.append(kf("boom", [(h3, "transform: scale(.2); opacity:0"), (h3 + 0.03, "transform: scale(.6); opacity:1"), (h3 + 0.7, "transform: scale(2.6); opacity:0")], loop=False)
-               + f" .boom{{animation:boom {a} ease-out}}")
-    css.append(kf("hp", [(TB + 0.4, "opacity:0"), (TB + 0.55, "opacity:1"), (h3 + 0.3, "opacity:1"), (h3 + 0.5, "opacity:0")], loop=False)
+    css.append(kf("boom", [(last, "transform: scale(.2); opacity:0"), (last + 0.03, "transform: scale(.6); opacity:1"), (last + 0.7, "transform: scale(2.6); opacity:0")],
+                  loop=False) + f" .boom{{animation:boom {a} ease-out}}")
+    css.append(kf("hp", [(r(.4), "opacity:0"), (r(.55), "opacity:1"), (last + 0.3, "opacity:1"), (last + 0.5, "opacity:0")], loop=False)
                + f" .hp{{animation:hp {a} linear}}")
+    n = len(HITS)
     left = [(TB, "transform: scaleX(1)")]
     for k, h in enumerate(HITS):
-        left += [(h, f"transform: scaleX({1 - k / 3:.3f})"), (h + 0.15, f"transform: scaleX({1 - (k + 1) / 3:.3f})")]
+        left += [(h, f"transform: scaleX({1 - k / n:.3f})"), (h + 0.1, f"transform: scaleX({1 - (k + 1) / n:.3f})")]
     css.append(kf("hpf", left, loop=False) + f" .hpf{{animation:hpf {a} ease-out}}")
-    css.append(kf("fire", [(TB + 0.949, f"transform: translate({BX - 70}px,{GROUND - 40}px); opacity:0"),
-                           (TB + 0.95, f"transform: translate({BX - 70}px,{GROUND - 40}px); opacity:1"),
-                           (TB + 1.6, f"transform: translate(-40px,{GROUND - 40}px); opacity:1"),
-                           (TB + 1.602, f"transform: translate(-40px,{GROUND - 40}px); opacity:0")], loop=False)
-               + f" .fire{{animation:fire {a} linear}}")
+    parts = []
+    for k, f in enumerate(FIRE_AT):                         # fireballs roll left along the ground
+        css.append(kf(f"fire{k}", [(r(f) - 0.001, f"transform: translate({BX - 70}px,{G - 40}px); opacity:0"),
+                                   (r(f), f"transform: translate({BX - 70}px,{G - 40}px); opacity:1"),
+                                   (r(f + .65), f"transform: translate(-40px,{G - 40}px); opacity:1"),
+                                   (r(f + .652), f"transform: translate(-40px,{G - 40}px); opacity:0")], loop=False)
+                   + f" .fire{k}{{animation:fire{k} {a} linear}}")
+        parts.append(f'<g class="fire{k}" opacity="0"><circle r="13" fill="#f97316" filter="url(#glow)"/><circle r="7" fill="#fde047"/>'
+                     f'<path d="M10,-8 l20,-4 M12,0 l26,0 M10,8 l20,4" stroke="#f97316" stroke-width="3" stroke-linecap="round" opacity=".7"/></g>')
+    for k, sl in enumerate(SLAM_AT):                        # shockwave from each slam
+        land = r(sl + .4)
+        css.append(kf(f"wave{k}", [(land - 0.001, f"transform: translate({BX - 60}px,{G}px); opacity:0"),
+                                   (land, f"transform: translate({BX - 60}px,{G}px); opacity:1"),
+                                   (land + .6, f"transform: translate(-80px,{G}px); opacity:1"),
+                                   (land + .602, f"transform: translate(-80px,{G}px); opacity:0")], loop=False)
+                   + f" .wave{k}{{animation:wave{k} {a} linear}}")
+        parts.append(f'<g class="wave{k}" opacity="0"><path d="M-22,0 Q-10,-30 0,-44 Q10,-30 22,0 Z" fill="#f97316" opacity=".9" filter="url(#glow)"/>'
+                     f'<path d="M-12,0 Q-5,-18 0,-26 Q5,-18 12,0 Z" fill="#fde047"/><path d="M24,-4 l26,0 M22,-14 l20,-4" stroke="#fdba74" stroke-width="3" stroke-linecap="round"/></g>')
+        shake += [(land - 0.001, "transform: translate(0,0)"), (land + 0.02, "transform: translate(0,9px)"),
+                  (land + 0.07, "transform: translate(0,-6px)"), (land + 0.12, "transform: translate(0,0)")]
+    for k, st in enumerate(STORM_AT):                       # shuriken storm
+        css.append(kf(f"storm{k}", [(r(st) - 0.001, f"transform: translate(150px,{G - 46}px); opacity:0"),
+                                    (r(st), f"transform: translate(150px,{G - 46}px); opacity:1"),
+                                    (r(st + .2), f"transform: translate({BX - 40}px,{G - 80 + k * 18}px); opacity:1"),
+                                    (r(st + .21), f"transform: translate({BX - 40}px,{G - 80 + k * 18}px); opacity:0")], loop=False)
+                   + f" .storm{k}{{animation:storm{k} {a} linear}}")
+        parts.append(f'<g class="storm{k}" opacity="0"><g class="spin"><path d="M0,-11 L3,-3 L11,0 L3,3 L0,11 L-3,3 L-11,0 L-3,-3 Z" fill="#cbd5e1" '
+                     f'stroke="#64748b" stroke-width=".8"/><circle r="2.2" fill="#1e293b"/></g></g>')
     blink = [(TB - 0.25, "opacity:0")] + [(TB - 0.15 + k * 0.22, f"opacity:{1 if k % 2 == 0 else .15}") for k in range(6)] + [(TB + 1.2, "opacity:0")]
     css.append(kf("warn", blink, loop=False) + f" .warn{{animation:warn {a} linear}}")
-    shake += [(TB + 0.349, "transform: translate(0,0)"), (TB + 0.37, "transform: translate(0,8px)"), (TB + 0.42, "transform: translate(0,-5px)"),
-              (TB + 0.48, "transform: translate(0,0)")]
-    flash += [(h3 + 0.13, "opacity:0"), (h3 + 0.15, "opacity:.5"), (h3 + 0.4, "opacity:0")]
+    shake += [(r(.349), "transform: translate(0,0)"), (r(.37), "transform: translate(0,8px)"), (r(.42), "transform: translate(0,-5px)"), (r(.48), "transform: translate(0,0)")]
+    shake += [f for x in [CHARGE_AT + .18] + [h - TB for h in HURT_AT[1:]] for f in
+              [(r(x) - 0.001, "transform: translate(0,0)"), (r(x) + 0.03, "transform: translate(-8px,4px)"), (r(x) + 0.07, "transform: translate(7px,-3px)"),
+               (r(x) + 0.12, "transform: translate(0,0)")]]
+    flash += [(last + 0.13, "opacity:0"), (last + 0.15, "opacity:.5"), (last + 0.4, "opacity:0")]
     whites = BOSS.replace('fill="#', 'fill="#ffffff" data-f="#').replace('stroke="#', 'stroke="#ffffff" data-s="#')
-    boom = "".join(f'<circle cx="{40 * __import__("math").cos(k * 0.5236):.0f}" cy="{40 * __import__("math").sin(k * 0.5236):.0f}" r="{6 + k % 3 * 3}" '
+    rage = BOSS.replace('fill="#', 'fill="#ff4d1f" data-f="#').replace('stroke="#', 'stroke="#ff4d1f" data-s="#')
+    boom = "".join(f'<circle cx="{40 * math.cos(k * 0.5236):.0f}" cy="{40 * math.sin(k * 0.5236):.0f}" r="{6 + k % 3 * 3}" '
                    f'fill="{["#b91c1c", "#fbbf24", "#f97316"][k % 3]}"/>' for k in range(12))
     return f'''
-  <g transform="translate(0,0)"><g class="fire"><circle r="13" fill="#f97316" filter="url(#glow)"/><circle r="7" fill="#fde047"/>
-    <path d="M10,-8 l20,-4 M12,0 l26,0 M10,8 l20,4" stroke="#f97316" stroke-width="3" stroke-linecap="round" opacity=".7"/></g></g>
-  <g transform="translate({BX},{GROUND})">
-    <g class="boss"><g class="bob">{BOSS}<g class="bflash" opacity="0">{whites}</g></g></g>
+  {"".join(parts)}
+  <g transform="translate({BX},{G})">
+    <g class="boss"><g class="bob">{BOSS}<g class="rage" opacity="0" filter="url(#glow)">{rage}</g><g class="bflash" opacity="0">{whites}</g></g></g>
     <g transform="translate(0,-58)"><g class="boom">{boom}</g></g>
   </g>
-  <g class="hp" opacity="0" transform="translate({BX - 80},{GROUND - 150})" font-family="Segoe UI,Helvetica,Arial,sans-serif">
+  <g class="hp" opacity="0" transform="translate({BX - 80},{G - 150})" font-family="Segoe UI,Helvetica,Arial,sans-serif">
     <text x="0" y="-6" font-size="12" font-weight="900" fill="#fca5a5" letter-spacing="1.5">BOSS · THE BUG</text>
     <rect width="160" height="10" rx="5" fill="#3b0a0a" stroke="#fca5a5" stroke-width="1"/>
     <rect class="hpf" width="160" height="10" rx="5" fill="#ef4444"/>
@@ -407,12 +477,34 @@ def boss(css, shake, flash):
     <text y="26" font-size="16" fill="#fecaca" stroke="#1f0505" stroke-width="4" paint-order="stroke">BOSS APPROACHING: THE BUG</text></g></g>'''
 
 
+def hearts(css):
+    """The ninja's three lives: one lost to the charge, one to the shockwave; the main ninja blinks when hit."""
+    out = []
+    for k in range(3):
+        lost = HURT_AT[2 - k] if k > 0 else None     # hearts 2 and 1 (from the right) are lost, the first survives
+        if lost is not None:
+            t = TB + lost
+            css.append(kf(f"heart{k}", [(t, "opacity:1"), (t + .06, "opacity:.1"), (t + .12, "opacity:1"), (t + .18, "opacity:.1"),
+                                        (t + .24, "opacity:1"), (t + .32, "opacity:0")], loop=False, first="opacity:1")
+                       + f" .heart{k}{{animation:heart{k} {T}s infinite step-end}}")
+        out.append(f'<path class="heart{k}" transform="translate({30 + k * 22},104)" d="M0,4 C-8,-4 -8,-10 -3,-10 C-1,-10 0,-8 0,-7 '
+                   f'C0,-8 1,-10 3,-10 C8,-10 8,-4 0,4 Z" fill="#ef4444" stroke="#fecaca" stroke-width="1"/>')
+    hurt = []
+    for x in HURT_AT:
+        t = TB + x
+        hurt += [(t, "opacity:1"), (t + .06, "opacity:.25"), (t + .12, "opacity:1"), (t + .18, "opacity:.25"), (t + .24, "opacity:1"),
+                 (t + .3, "opacity:.25"), (t + .4, "opacity:1")]
+    css.append(kf("hurt", hurt, loop=False, first="opacity:1") + f" .hurt{{animation:hurt {T}s infinite step-end}}")
+    reds = [f for x in HURT_AT for f in [(TB + x - .001, "opacity:0"), (TB + x + .02, "opacity:.3"), (TB + x + .2, "opacity:0")]]
+    css.append(kf("rflash", reds, loop=False, first="opacity:0") + f" .rflash{{animation:rflash {T}s infinite linear}}")
+    return "".join(out)
+
 def build(total, year, streak, mix):
     orbs, words, stars, (pos, flip, face, sword), _ = choreograph()
     # points: languages share most of the score by bytes of code, the boss's hits the rest; it lands exactly on the total
     boss_pts = round(total * BOSS_SHARE)
     lang_pts = dict(zip([o["lang"] for o in orbs], split(total - boss_pts, [mix[o["lang"]][0] for o in orbs])))
-    hit_pts = split(boss_pts, [1, 1, 1])
+    hit_pts = split(boss_pts, [1] * len(HITS))
     cut_times = sorted({o["tc"] for o in orbs} | set(HITS))
     values, gain, score = [], {}, 0
     for t in cut_times:
@@ -496,7 +588,7 @@ def build(total, year, streak, mix):
     total_s, year_s = f"{total:,}", f"{year:,}"
     body.append(f'''<g transform="translate({W // 2},150)"><g class="clear" font-family="Impact,Segoe UI Black,Arial Black,sans-serif" text-anchor="middle" font-style="italic">
     <text y="0" font-size="40" fill="#fbbf24" stroke="#7c2d12" stroke-width="6" paint-order="stroke">GAME CLEAR</text>
-    <text y="34" font-size="20" fill="#ffffff" stroke="#0b1020" stroke-width="4" paint-order="stroke">{total_s} COMMITS SLICED</text></g></g>''')
+    <text y="34" font-size="20" fill="#ffffff" stroke="#0b1020" stroke-width="4" paint-order="stroke">{total_s} CONTRIBUTIONS SLICED</text></g></g>''')
 
     score_css, score = score_strip(values, cut_times, total)
     css += score_css
@@ -516,6 +608,7 @@ def build(total, year, streak, mix):
 .star {{ animation: twinkle 3s ease-in-out infinite }}
 @media (prefers-reduced-motion: reduce) {{ * {{ animation-duration: 0s !important }} }}""")
 
+    lives = hearts(css)
     belt_name, belt_col = belt(streak)
     level = total // 250 + 1
     # the belt shows the streak; a black belt gets a gold trim so it reads on the black outfit
@@ -548,10 +641,12 @@ def build(total, year, streak, mix):
 <rect x="-20" y="{GROUND}" width="{W + 40}" height="{H - GROUND + 20}" fill="#0e1428"/>
 <path d="M-20,{GROUND} H{W + 20}" stroke="#2c5364" stroke-width="2"/>
 {ghosts}
-{ninja(0, 1).replace(BELT_PATH, belt_svg)}
+<g class="hurt">{ninja(0, 1).replace(BELT_PATH, belt_svg)}</g>
 {"".join(body)}
 </g>
 <rect class="flash" width="{W}" height="{H}" fill="#fff" opacity="0"/>
+<rect class="rflash" width="{W}" height="{H}" fill="#ef4444" opacity="0"/>
+{lives}
 <text x="{W - 16}" y="{H - 12}" text-anchor="end" font-family="Segoe UI,Helvetica,Arial,sans-serif" font-size="10.5" fill="#9fb3c8" opacity=".55">© Rashmikanth G R · github.com/rashmikanth-tech</text>
 <g font-family="Segoe UI,Helvetica,Arial,sans-serif">
   <text x="26" y="34" font-size="12" font-weight="700" fill="#7dd3fc" letter-spacing="2">NINJA RANK</text>
@@ -560,7 +655,7 @@ def build(total, year, streak, mix):
   <text x="26" y="86" font-size="12" fill="#9fb3c8">{belt_name} BELT · {streak}-day streak</text>
 </g>
 <g font-family="Segoe UI,Helvetica,Arial,sans-serif" text-anchor="end">
-  <text x="{W - 26}" y="34" font-size="12" font-weight="700" fill="#7dd3fc" letter-spacing="2">COMMITS SLICED</text>
+  <text x="{W - 26}" y="34" font-size="12" font-weight="700" fill="#7dd3fc" letter-spacing="2">CONTRIBUTIONS SLICED</text>
   <g transform="translate({W - 26},68)"><g class="bump" font-size="32" font-weight="900" fill="#ffffff" style="font-variant-numeric: tabular-nums">{score}</g></g>
   <text x="{W - 26}" y="88" font-size="12" fill="#9fb3c8">{year_s} this year · private repos included</text>
 </g>
@@ -569,10 +664,75 @@ def build(total, year, streak, mix):
 '''
 
 
+def streaks(days, today):
+    """First contribution date, current streak (length, start, end) and longest streak (length, start, end).
+    The current streak ends today, or yesterday if today has no contributions yet."""
+    dates = sorted(d for d, n in days.items() if n and d <= today.isoformat())
+    best, run, start, prev = (0, None, None), 0, None, None
+    for d in map(dt.date.fromisoformat, dates):
+        if prev and (d - prev).days == 1:
+            run += 1
+        else:
+            run, start = 1, d
+        if run > best[0]:
+            best = (run, start, d)
+        prev = d
+    end = today if days.get(today.isoformat()) else today - dt.timedelta(days=1)
+    cur = (run, start, prev) if prev == end else (0, end, end)
+    return dt.date.fromisoformat(dates[0]), cur, best
+
+
+def card(total, days, today):
+    """assets/stats.svg: total contributions, current streak and longest streak, in the ninja's colours."""
+    first, (cur, cs, ce), (best, bs, be) = streaks(days, today)
+
+    def day(d):
+        return f"{d:%b} {d.day}" + ("" if d.year == today.year else f", {d.year}")
+    w, h = 880, 200
+    col = w // 3
+    font = 'font-family="Segoe UI,Helvetica,Arial,sans-serif"'
+    ring = 2 * 3.14159 * 46
+    return f'''<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="0 0 {w} {h}" role="img" aria-label="{total:,} total contributions; current streak {cur} days; longest streak {best} days">
+<title>{total:,} contributions · {cur}-day streak · longest {best} days</title>
+<metadata>Stats card (c) 2026 Rashmikanth G R, https://github.com/rashmikanth-tech. CC BY 4.0: credit required.</metadata>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#070b18"/><stop offset="1" stop-color="#1a2340"/></linearGradient></defs>
+<style>
+@keyframes draw {{ from {{ stroke-dashoffset: {ring:.1f} }} to {{ stroke-dashoffset: 0 }} }}
+@keyframes up {{ from {{ opacity: 0; transform: translateY(8px) }} to {{ opacity: 1; transform: translateY(0) }} }}
+@keyframes flick {{ 0%,100% {{ transform: scale(1) }} 50% {{ transform: scale(1.12) }} }}
+.ring {{ stroke-dasharray: {ring:.1f}; animation: draw 1.4s ease-out both }}
+.up {{ animation: up .8s ease-out both }}
+.flame {{ animation: flick 1.2s ease-in-out infinite; transform-box: fill-box; transform-origin: 50% 100% }}
+@media (prefers-reduced-motion: reduce) {{ * {{ animation: none !important }} }}
+</style>
+<rect width="{w}" height="{h}" rx="18" fill="url(#bg)"/>
+<path d="M{col},34 V{h - 34} M{2 * col},34 V{h - 34}" stroke="#2c3a5e" stroke-width="1.5"/>
+<g {font} text-anchor="middle">
+  <g class="up"><text x="{col // 2}" y="92" font-size="40" font-weight="900" fill="#ffffff">{total:,}</text>
+    <text x="{col // 2}" y="126" font-size="15" font-weight="700" fill="#7dd3fc">Total Contributions</text>
+    <text x="{col // 2}" y="150" font-size="12" fill="#9fb3c8">{day(first)} - Present</text></g>
+  <circle cx="{col + col // 2}" cy="78" r="46" fill="none" stroke="#2c3a5e" stroke-width="6"/>
+  <circle class="ring" cx="{col + col // 2}" cy="78" r="46" fill="none" stroke="#f97316" stroke-width="6" stroke-linecap="round" transform="rotate(-90 {col + col // 2} 78)"/>
+  <path class="flame" d="M{col + col // 2},20 c-7,8 -11,13 -11,19 a11,11 0 0 0 22,0 c0,-6 -4,-11 -11,-19 Z" fill="#f97316" stroke="#070b18" stroke-width="3"/>
+  <path d="M{col + col // 2},31 c-3,4 -5,6 -5,9 a5,5 0 0 0 10,0 c0,-3 -2,-5 -5,-9 Z" fill="#fde047"/>
+  <g class="up" style="animation-delay:.3s"><text x="{col + col // 2}" y="92" font-size="38" font-weight="900" fill="#ffffff">{cur}</text>
+    <text x="{col + col // 2}" y="156" font-size="15" font-weight="700" fill="#fb923c">Current Streak</text>
+    <text x="{col + col // 2}" y="178" font-size="12" fill="#9fb3c8">{day(cs)} - {day(ce)}</text></g>
+  <g class="up" style="animation-delay:.6s"><text x="{2 * col + col // 2}" y="92" font-size="40" font-weight="900" fill="#ffffff">{best}</text>
+    <text x="{2 * col + col // 2}" y="126" font-size="15" font-weight="700" fill="#fbbf24">Longest Streak</text>
+    <text x="{2 * col + col // 2}" y="150" font-size="12" fill="#9fb3c8">{day(bs)} - {day(be)}</text></g>
+</g>
+<text x="{w - 16}" y="{h - 10}" text-anchor="end" {font} font-size="10" fill="#9fb3c8" opacity=".5">© Rashmikanth G R</text>
+</svg>
+'''
+
+
 if __name__ == "__main__":
-    total, year, streak, mix = stats()
+    total, year, streak, mix, days = stats()
     today = dt.datetime.now(dt.timezone.utc).date().isoformat()
     mix = setup(mix, os.environ.get("NINJA_SEED", today))
     with open("assets/ninja.svg", "w", encoding="utf-8") as f:
         f.write(build(total, year, streak, mix))
+    with open("assets/stats.svg", "w", encoding="utf-8") as f:
+        f.write(card(total, days, dt.datetime.now(dt.timezone.utc).date()))
     print(f"assets/ninja.svg: {total:,} total, {year:,} this year, {streak}-day streak, {len(mix)} languages, seed {today}")
