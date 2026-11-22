@@ -1,0 +1,342 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="320" viewBox="0 0 880 320" role="img" aria-label="A ninja slicing programming languages. 6,528 contributions in total, 6,221 this year.">
+<title>6,528 contributions, 6,221 this year</title>
+<defs>
+  <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0b1020"/><stop offset="1" stop-color="#1a2340"/></linearGradient>
+  <radialGradient id="shine" cx=".35" cy=".3" r=".75"><stop offset="0" stop-color="#fff" stop-opacity=".35"/><stop offset=".5" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".25"/></radialGradient>
+  <clipPath id="topcut"><polygon points="-40,-40 40,-40 40,-28 -40,28"/></clipPath>
+  <clipPath id="botcut"><polygon points="-40,28 40,-28 40,40 -40,40"/></clipPath>
+  <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<style>
+@keyframes rise0 {
+  0% { transform: translate(110px,360px); opacity:0 }
+  0.000% { transform: translate(110px,360px); opacity:0 }
+  0.000% { transform: translate(110px,360px); opacity:1; animation-timing-function: cubic-bezier(.2,.7,.3,1) }
+  5.625% { transform: translate(110px,150px); opacity:1; animation-timing-function: cubic-bezier(.5,0,.9,.6) }
+  12.109% { transform: translate(110px,350px); opacity:1 }
+  12.188%, 100% { transform: translate(110px,350px); opacity:0 }
+}
+@keyframes halfa0 { 0%, 5.625% { transform: translate(0,0) rotate(0) } 12.109%, 100% { transform: translate(-52px,-6px) rotate(-75deg) } }
+@keyframes halfb0 { 0%, 5.625% { transform: translate(0,0) rotate(0) } 12.109%, 100% { transform: translate(52px,10px) rotate(85deg) } }
+@keyframes cut0 { 0%, 5.156% { opacity:0; stroke-dashoffset:90 } 5.625% { opacity:1; stroke-dashoffset:0 } 7.344%, 100% { opacity:0; stroke-dashoffset:-90 } }
+@keyframes burst0 { 0%, 5.625% { transform: scale(.2); opacity:0 } 5.781% { opacity:.95 } 9.141%, 100% { transform: scale(1.5); opacity:0 } }
+@keyframes pop0 { 0%, 5.625% { transform: translate(110px,120px); opacity:0 } 6.016% { opacity:1 }
+  11.484%, 100% { transform: translate(110px,88px); opacity:0 } }
+.r0 { animation: rise0 12.8s linear infinite }
+.a0 { animation: halfa0 12.8s ease-in infinite }
+.b0 { animation: halfb0 12.8s ease-in infinite }
+.c0 { animation: cut0 12.8s linear infinite }
+.s0 { animation: burst0 12.8s ease-out infinite }
+.p0 { animation: pop0 12.8s ease-out infinite }
+@keyframes rise1 {
+  0% { transform: translate(203px,360px); opacity:0 }
+  12.422% { transform: translate(203px,360px); opacity:0 }
+  12.500% { transform: translate(203px,360px); opacity:1; animation-timing-function: cubic-bezier(.2,.7,.3,1) }
+  18.125% { transform: translate(203px,150px); opacity:1; animation-timing-function: cubic-bezier(.5,0,.9,.6) }
+  24.609% { transform: translate(203px,350px); opacity:1 }
+  24.688%, 100% { transform: translate(203px,350px); opacity:0 }
+}
+@keyframes halfa1 { 0%, 18.125% { transform: translate(0,0) rotate(0) } 24.609%, 100% { transform: translate(-52px,-6px) rotate(-75deg) } }
+@keyframes halfb1 { 0%, 18.125% { transform: translate(0,0) rotate(0) } 24.609%, 100% { transform: translate(52px,10px) rotate(85deg) } }
+@keyframes cut1 { 0%, 17.656% { opacity:0; stroke-dashoffset:90 } 18.125% { opacity:1; stroke-dashoffset:0 } 19.844%, 100% { opacity:0; stroke-dashoffset:-90 } }
+@keyframes burst1 { 0%, 18.125% { transform: scale(.2); opacity:0 } 18.281% { opacity:.95 } 21.641%, 100% { transform: scale(1.5); opacity:0 } }
+@keyframes pop1 { 0%, 18.125% { transform: translate(203px,120px); opacity:0 } 18.516% { opacity:1 }
+  23.984%, 100% { transform: translate(203px,88px); opacity:0 } }
+.r1 { animation: rise1 12.8s linear infinite }
+.a1 { animation: halfa1 12.8s ease-in infinite }
+.b1 { animation: halfb1 12.8s ease-in infinite }
+.c1 { animation: cut1 12.8s linear infinite }
+.s1 { animation: burst1 12.8s ease-out infinite }
+.p1 { animation: pop1 12.8s ease-out infinite }
+@keyframes rise2 {
+  0% { transform: translate(296px,360px); opacity:0 }
+  24.922% { transform: translate(296px,360px); opacity:0 }
+  25.000% { transform: translate(296px,360px); opacity:1; animation-timing-function: cubic-bezier(.2,.7,.3,1) }
+  30.625% { transform: translate(296px,150px); opacity:1; animation-timing-function: cubic-bezier(.5,0,.9,.6) }
+  37.109% { transform: translate(296px,350px); opacity:1 }
+  37.187%, 100% { transform: translate(296px,350px); opacity:0 }
+}
+@keyframes halfa2 { 0%, 30.625% { transform: translate(0,0) rotate(0) } 37.109%, 100% { transform: translate(-52px,-6px) rotate(-75deg) } }
+@keyframes halfb2 { 0%, 30.625% { transform: translate(0,0) rotate(0) } 37.109%, 100% { transform: translate(52px,10px) rotate(85deg) } }
+@keyframes cut2 { 0%, 30.156% { opacity:0; stroke-dashoffset:90 } 30.625% { opacity:1; stroke-dashoffset:0 } 32.344%, 100% { opacity:0; stroke-dashoffset:-90 } }
+@keyframes burst2 { 0%, 30.625% { transform: scale(.2); opacity:0 } 30.781% { opacity:.95 } 34.141%, 100% { transform: scale(1.5); opacity:0 } }
+@keyframes pop2 { 0%, 30.625% { transform: translate(296px,120px); opacity:0 } 31.016% { opacity:1 }
+  36.484%, 100% { transform: translate(296px,88px); opacity:0 } }
+.r2 { animation: rise2 12.8s linear infinite }
+.a2 { animation: halfa2 12.8s ease-in infinite }
+.b2 { animation: halfb2 12.8s ease-in infinite }
+.c2 { animation: cut2 12.8s linear infinite }
+.s2 { animation: burst2 12.8s ease-out infinite }
+.p2 { animation: pop2 12.8s ease-out infinite }
+@keyframes rise3 {
+  0% { transform: translate(389px,360px); opacity:0 }
+  37.422% { transform: translate(389px,360px); opacity:0 }
+  37.500% { transform: translate(389px,360px); opacity:1; animation-timing-function: cubic-bezier(.2,.7,.3,1) }
+  43.125% { transform: translate(389px,150px); opacity:1; animation-timing-function: cubic-bezier(.5,0,.9,.6) }
+  49.609% { transform: translate(389px,350px); opacity:1 }
+  49.688%, 100% { transform: translate(389px,350px); opacity:0 }
+}
+@keyframes halfa3 { 0%, 43.125% { transform: translate(0,0) rotate(0) } 49.609%, 100% { transform: translate(-52px,-6px) rotate(-75deg) } }
+@keyframes halfb3 { 0%, 43.125% { transform: translate(0,0) rotate(0) } 49.609%, 100% { transform: translate(52px,10px) rotate(85deg) } }
+@keyframes cut3 { 0%, 42.656% { opacity:0; stroke-dashoffset:90 } 43.125% { opacity:1; stroke-dashoffset:0 } 44.844%, 100% { opacity:0; stroke-dashoffset:-90 } }
+@keyframes burst3 { 0%, 43.125% { transform: scale(.2); opacity:0 } 43.281% { opacity:.95 } 46.641%, 100% { transform: scale(1.5); opacity:0 } }
+@keyframes pop3 { 0%, 43.125% { transform: translate(389px,120px); opacity:0 } 43.516% { opacity:1 }
+  48.984%, 100% { transform: translate(389px,88px); opacity:0 } }
+.r3 { animation: rise3 12.8s linear infinite }
+.a3 { animation: halfa3 12.8s ease-in infinite }
+.b3 { animation: halfb3 12.8s ease-in infinite }
+.c3 { animation: cut3 12.8s linear infinite }
+.s3 { animation: burst3 12.8s ease-out infinite }
+.p3 { animation: pop3 12.8s ease-out infinite }
+@keyframes rise4 {
+  0% { transform: translate(482px,360px); opacity:0 }
+  49.922% { transform: translate(482px,360px); opacity:0 }
+  50.000% { transform: translate(482px,360px); opacity:1; animation-timing-function: cubic-bezier(.2,.7,.3,1) }
+  55.625% { transform: translate(482px,150px); opacity:1; animation-timing-function: cubic-bezier(.5,0,.9,.6) }
+  62.109% { transform: translate(482px,350px); opacity:1 }
+  62.187%, 100% { transform: translate(482px,350px); opacity:0 }
+}
+@keyframes halfa4 { 0%, 55.625% { transform: translate(0,0) rotate(0) } 62.109%, 100% { transform: translate(-52px,-6px) rotate(-75deg) } }
+@keyframes halfb4 { 0%, 55.625% { transform: translate(0,0) rotate(0) } 62.109%, 100% { transform: translate(52px,10px) rotate(85deg) } }
+@keyframes cut4 { 0%, 55.156% { opacity:0; stroke-dashoffset:90 } 55.625% { opacity:1; stroke-dashoffset:0 } 57.344%, 100% { opacity:0; stroke-dashoffset:-90 } }
+@keyframes burst4 { 0%, 55.625% { transform: scale(.2); opacity:0 } 55.781% { opacity:.95 } 59.141%, 100% { transform: scale(1.5); opacity:0 } }
+@keyframes pop4 { 0%, 55.625% { transform: translate(482px,120px); opacity:0 } 56.016% { opacity:1 }
+  61.484%, 100% { transform: translate(482px,88px); opacity:0 } }
+.r4 { animation: rise4 12.8s linear infinite }
+.a4 { animation: halfa4 12.8s ease-in infinite }
+.b4 { animation: halfb4 12.8s ease-in infinite }
+.c4 { animation: cut4 12.8s linear infinite }
+.s4 { animation: burst4 12.8s ease-out infinite }
+.p4 { animation: pop4 12.8s ease-out infinite }
+@keyframes rise5 {
+  0% { transform: translate(575px,360px); opacity:0 }
+  62.422% { transform: translate(575px,360px); opacity:0 }
+  62.500% { transform: translate(575px,360px); opacity:1; animation-timing-function: cubic-bezier(.2,.7,.3,1) }
+  68.125% { transform: translate(575px,150px); opacity:1; animation-timing-function: cubic-bezier(.5,0,.9,.6) }
+  74.609% { transform: translate(575px,350px); opacity:1 }
+  74.688%, 100% { transform: translate(575px,350px); opacity:0 }
+}
+@keyframes halfa5 { 0%, 68.125% { transform: translate(0,0) rotate(0) } 74.609%, 100% { transform: translate(-52px,-6px) rotate(-75deg) } }
+@keyframes halfb5 { 0%, 68.125% { transform: translate(0,0) rotate(0) } 74.609%, 100% { transform: translate(52px,10px) rotate(85deg) } }
+@keyframes cut5 { 0%, 67.656% { opacity:0; stroke-dashoffset:90 } 68.125% { opacity:1; stroke-dashoffset:0 } 69.844%, 100% { opacity:0; stroke-dashoffset:-90 } }
+@keyframes burst5 { 0%, 68.125% { transform: scale(.2); opacity:0 } 68.281% { opacity:.95 } 71.641%, 100% { transform: scale(1.5); opacity:0 } }
+@keyframes pop5 { 0%, 68.125% { transform: translate(575px,120px); opacity:0 } 68.516% { opacity:1 }
+  73.984%, 100% { transform: translate(575px,88px); opacity:0 } }
+.r5 { animation: rise5 12.8s linear infinite }
+.a5 { animation: halfa5 12.8s ease-in infinite }
+.b5 { animation: halfb5 12.8s ease-in infinite }
+.c5 { animation: cut5 12.8s linear infinite }
+.s5 { animation: burst5 12.8s ease-out infinite }
+.p5 { animation: pop5 12.8s ease-out infinite }
+@keyframes rise6 {
+  0% { transform: translate(668px,360px); opacity:0 }
+  74.922% { transform: translate(668px,360px); opacity:0 }
+  75.000% { transform: translate(668px,360px); opacity:1; animation-timing-function: cubic-bezier(.2,.7,.3,1) }
+  80.625% { transform: translate(668px,150px); opacity:1; animation-timing-function: cubic-bezier(.5,0,.9,.6) }
+  87.109% { transform: translate(668px,350px); opacity:1 }
+  87.188%, 100% { transform: translate(668px,350px); opacity:0 }
+}
+@keyframes halfa6 { 0%, 80.625% { transform: translate(0,0) rotate(0) } 87.109%, 100% { transform: translate(-52px,-6px) rotate(-75deg) } }
+@keyframes halfb6 { 0%, 80.625% { transform: translate(0,0) rotate(0) } 87.109%, 100% { transform: translate(52px,10px) rotate(85deg) } }
+@keyframes cut6 { 0%, 80.156% { opacity:0; stroke-dashoffset:90 } 80.625% { opacity:1; stroke-dashoffset:0 } 82.344%, 100% { opacity:0; stroke-dashoffset:-90 } }
+@keyframes burst6 { 0%, 80.625% { transform: scale(.2); opacity:0 } 80.781% { opacity:.95 } 84.141%, 100% { transform: scale(1.5); opacity:0 } }
+@keyframes pop6 { 0%, 80.625% { transform: translate(668px,120px); opacity:0 } 81.016% { opacity:1 }
+  86.484%, 100% { transform: translate(668px,88px); opacity:0 } }
+.r6 { animation: rise6 12.8s linear infinite }
+.a6 { animation: halfa6 12.8s ease-in infinite }
+.b6 { animation: halfb6 12.8s ease-in infinite }
+.c6 { animation: cut6 12.8s linear infinite }
+.s6 { animation: burst6 12.8s ease-out infinite }
+.p6 { animation: pop6 12.8s ease-out infinite }
+@keyframes rise7 {
+  0% { transform: translate(761px,360px); opacity:0 }
+  87.422% { transform: translate(761px,360px); opacity:0 }
+  87.500% { transform: translate(761px,360px); opacity:1; animation-timing-function: cubic-bezier(.2,.7,.3,1) }
+  93.125% { transform: translate(761px,150px); opacity:1; animation-timing-function: cubic-bezier(.5,0,.9,.6) }
+  99.609% { transform: translate(761px,350px); opacity:1 }
+  99.688%, 100% { transform: translate(761px,350px); opacity:0 }
+}
+@keyframes halfa7 { 0%, 93.125% { transform: translate(0,0) rotate(0) } 99.609%, 100% { transform: translate(-52px,-6px) rotate(-75deg) } }
+@keyframes halfb7 { 0%, 93.125% { transform: translate(0,0) rotate(0) } 99.609%, 100% { transform: translate(52px,10px) rotate(85deg) } }
+@keyframes cut7 { 0%, 92.656% { opacity:0; stroke-dashoffset:90 } 93.125% { opacity:1; stroke-dashoffset:0 } 94.844%, 100% { opacity:0; stroke-dashoffset:-90 } }
+@keyframes burst7 { 0%, 93.125% { transform: scale(.2); opacity:0 } 93.281% { opacity:.95 } 96.641%, 100% { transform: scale(1.5); opacity:0 } }
+@keyframes pop7 { 0%, 93.125% { transform: translate(761px,120px); opacity:0 } 93.516% { opacity:1 }
+  98.984%, 100% { transform: translate(761px,88px); opacity:0 } }
+.r7 { animation: rise7 12.8s linear infinite }
+.a7 { animation: halfa7 12.8s ease-in infinite }
+.b7 { animation: halfb7 12.8s ease-in infinite }
+.c7 { animation: cut7 12.8s linear infinite }
+.s7 { animation: burst7 12.8s ease-out infinite }
+.p7 { animation: pop7 12.8s ease-out infinite }@keyframes ninja {
+  0% { transform: translate(40px,262px) }
+  1.406% { transform: translate(40px,262px) scaleY(.86); animation-timing-function: cubic-bezier(.2,.8,.4,1) }
+  5.469% { transform: translate(66px,202px) rotate(-8deg); animation-timing-function: linear }
+  6.719% { transform: translate(88px,196px) rotate(14deg); animation-timing-function: cubic-bezier(.5,0,.9,.5) }
+  9.766% { transform: translate(114px,262px) scaleY(.88) }
+  12.500% { transform: translate(133px,262px) }
+  13.906% { transform: translate(133px,262px) scaleY(.86); animation-timing-function: cubic-bezier(.2,.8,.4,1) }
+  17.969% { transform: translate(159px,202px) rotate(-8deg); animation-timing-function: linear }
+  19.219% { transform: translate(181px,196px) rotate(14deg); animation-timing-function: cubic-bezier(.5,0,.9,.5) }
+  22.266% { transform: translate(207px,262px) scaleY(.88) }
+  25.000% { transform: translate(226px,262px) }
+  26.406% { transform: translate(226px,262px) scaleY(.86); animation-timing-function: cubic-bezier(.2,.8,.4,1) }
+  30.469% { transform: translate(252px,202px) rotate(-8deg); animation-timing-function: linear }
+  31.719% { transform: translate(274px,196px) rotate(14deg); animation-timing-function: cubic-bezier(.5,0,.9,.5) }
+  34.766% { transform: translate(300px,262px) scaleY(.88) }
+  37.500% { transform: translate(319px,262px) }
+  38.906% { transform: translate(319px,262px) scaleY(.86); animation-timing-function: cubic-bezier(.2,.8,.4,1) }
+  42.969% { transform: translate(345px,202px) rotate(-8deg); animation-timing-function: linear }
+  44.219% { transform: translate(367px,196px) rotate(14deg); animation-timing-function: cubic-bezier(.5,0,.9,.5) }
+  47.266% { transform: translate(393px,262px) scaleY(.88) }
+  50.000% { transform: translate(412px,262px) }
+  51.406% { transform: translate(412px,262px) scaleY(.86); animation-timing-function: cubic-bezier(.2,.8,.4,1) }
+  55.469% { transform: translate(438px,202px) rotate(-8deg); animation-timing-function: linear }
+  56.719% { transform: translate(460px,196px) rotate(14deg); animation-timing-function: cubic-bezier(.5,0,.9,.5) }
+  59.766% { transform: translate(486px,262px) scaleY(.88) }
+  62.500% { transform: translate(505px,262px) }
+  63.906% { transform: translate(505px,262px) scaleY(.86); animation-timing-function: cubic-bezier(.2,.8,.4,1) }
+  67.969% { transform: translate(531px,202px) rotate(-8deg); animation-timing-function: linear }
+  69.219% { transform: translate(553px,196px) rotate(14deg); animation-timing-function: cubic-bezier(.5,0,.9,.5) }
+  72.266% { transform: translate(579px,262px) scaleY(.88) }
+  75.000% { transform: translate(598px,262px) }
+  76.406% { transform: translate(598px,262px) scaleY(.86); animation-timing-function: cubic-bezier(.2,.8,.4,1) }
+  80.469% { transform: translate(624px,202px) rotate(-8deg); animation-timing-function: linear }
+  81.719% { transform: translate(646px,196px) rotate(14deg); animation-timing-function: cubic-bezier(.5,0,.9,.5) }
+  84.766% { transform: translate(672px,262px) scaleY(.88) }
+  87.500% { transform: translate(691px,262px) }
+  88.906% { transform: translate(691px,262px) scaleY(.86); animation-timing-function: cubic-bezier(.2,.8,.4,1) }
+  92.969% { transform: translate(717px,202px) rotate(-8deg); animation-timing-function: linear }
+  94.219% { transform: translate(739px,196px) rotate(14deg); animation-timing-function: cubic-bezier(.5,0,.9,.5) }
+  97.266% { transform: translate(765px,262px) scaleY(.88) }
+  98.438% { transform: translate(791px,262px); opacity:1 }
+  99.219% { transform: translate(791px,262px); opacity:0 }
+  99.297% { transform: translate(40px,262px); opacity:0 }
+  100% { transform: translate(40px,262px); opacity:1 }
+}@keyframes sword {
+  0% { transform: rotate(-35deg) }
+  4.375% { transform: rotate(-150deg) }
+  5.391% { transform: rotate(-160deg) }
+  6.172% { transform: rotate(35deg) }
+  10.156% { transform: rotate(-35deg) }
+  16.875% { transform: rotate(-150deg) }
+  17.891% { transform: rotate(-160deg) }
+  18.672% { transform: rotate(35deg) }
+  22.656% { transform: rotate(-35deg) }
+  29.375% { transform: rotate(-150deg) }
+  30.391% { transform: rotate(-160deg) }
+  31.172% { transform: rotate(35deg) }
+  35.156% { transform: rotate(-35deg) }
+  41.875% { transform: rotate(-150deg) }
+  42.891% { transform: rotate(-160deg) }
+  43.672% { transform: rotate(35deg) }
+  47.656% { transform: rotate(-35deg) }
+  54.375% { transform: rotate(-150deg) }
+  55.391% { transform: rotate(-160deg) }
+  56.172% { transform: rotate(35deg) }
+  60.156% { transform: rotate(-35deg) }
+  66.875% { transform: rotate(-150deg) }
+  67.891% { transform: rotate(-160deg) }
+  68.672% { transform: rotate(35deg) }
+  72.656% { transform: rotate(-35deg) }
+  79.375% { transform: rotate(-150deg) }
+  80.391% { transform: rotate(-160deg) }
+  81.172% { transform: rotate(35deg) }
+  85.156% { transform: rotate(-35deg) }
+  91.875% { transform: rotate(-150deg) }
+  92.891% { transform: rotate(-160deg) }
+  93.672% { transform: rotate(35deg) }
+  97.656% { transform: rotate(-35deg) }
+  100% { transform: rotate(-35deg) }
+}.ninja { animation: ninja 12.8s infinite }
+.sword { animation: sword 12.8s ease-in-out infinite; transform-origin: 0 0 }
+@keyframes tail { 0%,100% { d: path("M-6,-46 q-14,-6 -26,4 q-8,6 -18,2") } 50% { d: path("M-6,-46 q-14,4 -26,-4 q-10,-6 -18,4") } }
+.tail { animation: tail .45s ease-in-out infinite }
+@keyframes twinkle { 0%,100% { opacity:.25 } 50% { opacity:1 } }
+.star { animation: twinkle 3s ease-in-out infinite }
+@media (prefers-reduced-motion: reduce) { * { animation-duration: 0s !important } }</style>
+<rect width="880" height="320" rx="18" fill="url(#sky)"/>
+<circle class="star" cx="0" cy="18" r="1.0" fill="#cfe8ff" style="animation-delay:0.0s"/><circle class="star" cx="137" cy="71" r="1.5" fill="#cfe8ff" style="animation-delay:0.4s"/><circle class="star" cx="274" cy="124" r="2.0" fill="#cfe8ff" style="animation-delay:0.8s"/><circle class="star" cx="411" cy="57" r="1.0" fill="#cfe8ff" style="animation-delay:1.2000000000000002s"/><circle class="star" cx="548" cy="110" r="1.5" fill="#cfe8ff" style="animation-delay:1.6s"/><circle class="star" cx="685" cy="43" r="2.0" fill="#cfe8ff" style="animation-delay:2.0s"/><circle class="star" cx="822" cy="96" r="1.0" fill="#cfe8ff" style="animation-delay:2.4000000000000004s"/><circle class="star" cx="79" cy="29" r="1.5" fill="#cfe8ff" style="animation-delay:0.0s"/><circle class="star" cx="216" cy="82" r="2.0" fill="#cfe8ff" style="animation-delay:0.4s"/><circle class="star" cx="353" cy="135" r="1.0" fill="#cfe8ff" style="animation-delay:0.8s"/><circle class="star" cx="490" cy="68" r="1.5" fill="#cfe8ff" style="animation-delay:1.2000000000000002s"/><circle class="star" cx="627" cy="121" r="2.0" fill="#cfe8ff" style="animation-delay:1.6s"/><circle class="star" cx="764" cy="54" r="1.0" fill="#cfe8ff" style="animation-delay:2.0s"/><circle class="star" cx="21" cy="107" r="1.5" fill="#cfe8ff" style="animation-delay:2.4000000000000004s"/><circle class="star" cx="158" cy="40" r="2.0" fill="#cfe8ff" style="animation-delay:0.0s"/><circle class="star" cx="295" cy="93" r="1.0" fill="#cfe8ff" style="animation-delay:0.4s"/><circle class="star" cx="432" cy="26" r="1.5" fill="#cfe8ff" style="animation-delay:0.8s"/><circle class="star" cx="569" cy="79" r="2.0" fill="#cfe8ff" style="animation-delay:1.2000000000000002s"/><circle class="star" cx="706" cy="132" r="1.0" fill="#cfe8ff" style="animation-delay:1.6s"/><circle class="star" cx="843" cy="65" r="1.5" fill="#cfe8ff" style="animation-delay:2.0s"/><circle class="star" cx="100" cy="118" r="2.0" fill="#cfe8ff" style="animation-delay:2.4000000000000004s"/><circle class="star" cx="237" cy="51" r="1.0" fill="#cfe8ff" style="animation-delay:0.0s"/><circle class="star" cx="374" cy="104" r="1.5" fill="#cfe8ff" style="animation-delay:0.4s"/><circle class="star" cx="511" cy="37" r="2.0" fill="#cfe8ff" style="animation-delay:0.8s"/><circle class="star" cx="648" cy="90" r="1.0" fill="#cfe8ff" style="animation-delay:1.2000000000000002s"/><circle class="star" cx="785" cy="23" r="1.5" fill="#cfe8ff" style="animation-delay:1.6s"/><circle class="star" cx="42" cy="76" r="2.0" fill="#cfe8ff" style="animation-delay:2.0s"/><circle class="star" cx="179" cy="129" r="1.0" fill="#cfe8ff" style="animation-delay:2.4000000000000004s"/><circle class="star" cx="316" cy="62" r="1.5" fill="#cfe8ff" style="animation-delay:0.0s"/><circle class="star" cx="453" cy="115" r="2.0" fill="#cfe8ff" style="animation-delay:0.4s"/><circle class="star" cx="590" cy="48" r="1.0" fill="#cfe8ff" style="animation-delay:0.8s"/><circle class="star" cx="727" cy="101" r="1.5" fill="#cfe8ff" style="animation-delay:1.2000000000000002s"/><circle class="star" cx="864" cy="34" r="2.0" fill="#cfe8ff" style="animation-delay:1.6s"/><circle class="star" cx="121" cy="87" r="1.0" fill="#cfe8ff" style="animation-delay:2.0s"/>
+<circle cx="440" cy="64" r="30" fill="#fef3c7" opacity=".9"/><circle cx="451" cy="57" r="30" fill="#0f1527"/>
+<path d="M0,232 L90,184 L170,222 L260,166 L360,218 L470,174 L560,226 L660,180 L760,228 L880,192 L880,320 L0,320 Z" fill="#1b2547"/>
+<rect x="0" y="262" width="880" height="58" fill="#0e1428"/>
+<path d="M0,262 H880" stroke="#2c5364" stroke-width="2"/>
+
+  <g class="r0">
+    <g class="s0"><circle cx="-30" cy="-8" r="4" fill="#02569B"/><circle cx="28" cy="-14" r="3.5" fill="#02569B"/><circle cx="-14" cy="26" r="3" fill="#02569B"/><circle cx="20" cy="22" r="4.5" fill="#02569B"/><circle cx="2" cy="-32" r="3" fill="#02569B"/><circle cx="-34" cy="18" r="2.5" fill="#02569B"/><circle cx="36" cy="10" r="2.5" fill="#02569B"/></g>
+    <g class="a0"><g clip-path="url(#topcut)"><circle r="25" fill="#02569B"/><circle r="25" fill="url(#shine)"/><path d="M-4,-14 L6,-14 L-7,-1 L-12,-6 Z" fill="#54C5F8"/><path d="M-1,-2 L9,-2 L2,5 L9,12 L-1,12 L-8,5 Z" fill="#54C5F8"/></g></g>
+    <g class="b0"><g clip-path="url(#botcut)"><circle r="25" fill="#02569B"/><circle r="25" fill="url(#shine)"/><path d="M-4,-14 L6,-14 L-7,-1 L-12,-6 Z" fill="#54C5F8"/><path d="M-1,-2 L9,-2 L2,5 L9,12 L-1,12 L-8,5 Z" fill="#54C5F8"/></g></g>
+    <line class="c0" x1="-42" y1="30" x2="42" y2="-30" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="90 90" filter="url(#glow)"/>
+  </g>
+  <text class="p0" text-anchor="middle" font-family="Segoe UI,Helvetica,Arial,sans-serif" font-weight="800" font-size="15" fill="#54C5F8" stroke="#0b1020" stroke-width="3" paint-order="stroke">Flutter +1</text>
+  <g class="r1">
+    <g class="s1"><circle cx="-30" cy="-8" r="4" fill="#E76F00"/><circle cx="28" cy="-14" r="3.5" fill="#E76F00"/><circle cx="-14" cy="26" r="3" fill="#E76F00"/><circle cx="20" cy="22" r="4.5" fill="#E76F00"/><circle cx="2" cy="-32" r="3" fill="#E76F00"/><circle cx="-34" cy="18" r="2.5" fill="#E76F00"/><circle cx="36" cy="10" r="2.5" fill="#E76F00"/></g>
+    <g class="a1"><g clip-path="url(#topcut)"><circle r="25" fill="#E76F00"/><circle r="25" fill="url(#shine)"/><path d="M-9,-1 h15 v7 a7,7 0 0 1 -7,7 h-1 a7,7 0 0 1 -7,-7 Z" fill="#fff"/><path d="M6,1 a4,4 0 0 1 0,7" stroke="#fff" stroke-width="2.4" fill="none"/><path d="M-4,-5 q-3,-4 0,-8 M1,-5 q-3,-4 0,-8" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round"/></g></g>
+    <g class="b1"><g clip-path="url(#botcut)"><circle r="25" fill="#E76F00"/><circle r="25" fill="url(#shine)"/><path d="M-9,-1 h15 v7 a7,7 0 0 1 -7,7 h-1 a7,7 0 0 1 -7,-7 Z" fill="#fff"/><path d="M6,1 a4,4 0 0 1 0,7" stroke="#fff" stroke-width="2.4" fill="none"/><path d="M-4,-5 q-3,-4 0,-8 M1,-5 q-3,-4 0,-8" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round"/></g></g>
+    <line class="c1" x1="-42" y1="30" x2="42" y2="-30" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="90 90" filter="url(#glow)"/>
+  </g>
+  <text class="p1" text-anchor="middle" font-family="Segoe UI,Helvetica,Arial,sans-serif" font-weight="800" font-size="15" fill="#ffffff" stroke="#0b1020" stroke-width="3" paint-order="stroke">Java +1</text>
+  <g class="r2">
+    <g class="s2"><circle cx="-30" cy="-8" r="4" fill="#0175C2"/><circle cx="28" cy="-14" r="3.5" fill="#0175C2"/><circle cx="-14" cy="26" r="3" fill="#0175C2"/><circle cx="20" cy="22" r="4.5" fill="#0175C2"/><circle cx="2" cy="-32" r="3" fill="#0175C2"/><circle cx="-34" cy="18" r="2.5" fill="#0175C2"/><circle cx="36" cy="10" r="2.5" fill="#0175C2"/></g>
+    <g class="a2"><g clip-path="url(#topcut)"><circle r="25" fill="#0175C2"/><circle r="25" fill="url(#shine)"/><path d="M-11,-3 L-3,-11 L11,-11 L11,3 L3,11 L-11,11 Z" fill="#7FD6F7"/><path d="M-3,-11 L11,3 L11,-11 Z" fill="#ffffff" opacity=".55"/></g></g>
+    <g class="b2"><g clip-path="url(#botcut)"><circle r="25" fill="#0175C2"/><circle r="25" fill="url(#shine)"/><path d="M-11,-3 L-3,-11 L11,-11 L11,3 L3,11 L-11,11 Z" fill="#7FD6F7"/><path d="M-3,-11 L11,3 L11,-11 Z" fill="#ffffff" opacity=".55"/></g></g>
+    <line class="c2" x1="-42" y1="30" x2="42" y2="-30" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="90 90" filter="url(#glow)"/>
+  </g>
+  <text class="p2" text-anchor="middle" font-family="Segoe UI,Helvetica,Arial,sans-serif" font-weight="800" font-size="15" fill="#7FD6F7" stroke="#0b1020" stroke-width="3" paint-order="stroke">Dart +1</text>
+  <g class="r3">
+    <g class="s3"><circle cx="-30" cy="-8" r="4" fill="#00ADD8"/><circle cx="28" cy="-14" r="3.5" fill="#00ADD8"/><circle cx="-14" cy="26" r="3" fill="#00ADD8"/><circle cx="20" cy="22" r="4.5" fill="#00ADD8"/><circle cx="2" cy="-32" r="3" fill="#00ADD8"/><circle cx="-34" cy="18" r="2.5" fill="#00ADD8"/><circle cx="36" cy="10" r="2.5" fill="#00ADD8"/></g>
+    <g class="a3"><g clip-path="url(#topcut)"><circle r="25" fill="#00ADD8"/><circle r="25" fill="url(#shine)"/><text x="0" y="5.4" text-anchor="middle" font-family="Segoe UI,Helvetica,Arial,sans-serif" font-weight="800" font-size="15" fill="#ffffff">Go</text></g></g>
+    <g class="b3"><g clip-path="url(#botcut)"><circle r="25" fill="#00ADD8"/><circle r="25" fill="url(#shine)"/><text x="0" y="5.4" text-anchor="middle" font-family="Segoe UI,Helvetica,Arial,sans-serif" font-weight="800" font-size="15" fill="#ffffff">Go</text></g></g>
+    <line class="c3" x1="-42" y1="30" x2="42" y2="-30" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="90 90" filter="url(#glow)"/>
+  </g>
+  <text class="p3" text-anchor="middle" font-family="Segoe UI,Helvetica,Arial,sans-serif" font-weight="800" font-size="15" fill="#ffffff" stroke="#0b1020" stroke-width="3" paint-order="stroke">Go +1</text>
+  <g class="r4">
+    <g class="s4"><circle cx="-30" cy="-8" r="4" fill="#3776AB"/><circle cx="28" cy="-14" r="3.5" fill="#3776AB"/><circle cx="-14" cy="26" r="3" fill="#3776AB"/><circle cx="20" cy="22" r="4.5" fill="#3776AB"/><circle cx="2" cy="-32" r="3" fill="#3776AB"/><circle cx="-34" cy="18" r="2.5" fill="#3776AB"/><circle cx="36" cy="10" r="2.5" fill="#3776AB"/></g>
+    <g class="a4"><g clip-path="url(#topcut)"><circle r="25" fill="#3776AB"/><circle r="25" fill="url(#shine)"/><rect x="-11" y="-11" width="13" height="13" rx="4" fill="#ffffff"/><rect x="-2" y="-2" width="13" height="13" rx="4" fill="#FFD43B"/><circle cx="-7" cy="-7" r="1.6" fill="#3776AB"/><circle cx="7" cy="7" r="1.6" fill="#3776AB"/></g></g>
+    <g class="b4"><g clip-path="url(#botcut)"><circle r="25" fill="#3776AB"/><circle r="25" fill="url(#shine)"/><rect x="-11" y="-11" width="13" height="13" rx="4" fill="#ffffff"/><rect x="-2" y="-2" width="13" height="13" rx="4" fill="#FFD43B"/><circle cx="-7" cy="-7" r="1.6" fill="#3776AB"/><circle cx="7" cy="7" r="1.6" fill="#3776AB"/></g></g>
+    <line class="c4" x1="-42" y1="30" x2="42" y2="-30" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="90 90" filter="url(#glow)"/>
+  </g>
+  <text class="p4" text-anchor="middle" font-family="Segoe UI,Helvetica,Arial,sans-serif" font-weight="800" font-size="15" fill="#FFD43B" stroke="#0b1020" stroke-width="3" paint-order="stroke">Python +1</text>
+  <g class="r5">
+    <g class="s5"><circle cx="-30" cy="-8" r="4" fill="#3178C6"/><circle cx="28" cy="-14" r="3.5" fill="#3178C6"/><circle cx="-14" cy="26" r="3" fill="#3178C6"/><circle cx="20" cy="22" r="4.5" fill="#3178C6"/><circle cx="2" cy="-32" r="3" fill="#3178C6"/><circle cx="-34" cy="18" r="2.5" fill="#3178C6"/><circle cx="36" cy="10" r="2.5" fill="#3178C6"/></g>
+    <g class="a5"><g clip-path="url(#topcut)"><circle r="25" fill="#3178C6"/><circle r="25" fill="url(#shine)"/><text x="0" y="5.4" text-anchor="middle" font-family="Segoe UI,Helvetica,Arial,sans-serif" font-weight="800" font-size="15" fill="#ffffff">TS</text></g></g>
+    <g class="b5"><g clip-path="url(#botcut)"><circle r="25" fill="#3178C6"/><circle r="25" fill="url(#shine)"/><text x="0" y="5.4" text-anchor="middle" font-family="Segoe UI,Helvetica,Arial,sans-serif" font-weight="800" font-size="15" fill="#ffffff">TS</text></g></g>
+    <line class="c5" x1="-42" y1="30" x2="42" y2="-30" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="90 90" filter="url(#glow)"/>
+  </g>
+  <text class="p5" text-anchor="middle" font-family="Segoe UI,Helvetica,Arial,sans-serif" font-weight="800" font-size="15" fill="#ffffff" stroke="#0b1020" stroke-width="3" paint-order="stroke">TypeScript +1</text>
+  <g class="r6">
+    <g class="s6"><circle cx="-30" cy="-8" r="4" fill="#777BB4"/><circle cx="28" cy="-14" r="3.5" fill="#777BB4"/><circle cx="-14" cy="26" r="3" fill="#777BB4"/><circle cx="20" cy="22" r="4.5" fill="#777BB4"/><circle cx="2" cy="-32" r="3" fill="#777BB4"/><circle cx="-34" cy="18" r="2.5" fill="#777BB4"/><circle cx="36" cy="10" r="2.5" fill="#777BB4"/></g>
+    <g class="a6"><g clip-path="url(#topcut)"><circle r="25" fill="#777BB4"/><circle r="25" fill="url(#shine)"/><text x="0" y="4.3" text-anchor="middle" font-family="Segoe UI,Helvetica,Arial,sans-serif" font-weight="800" font-size="12" fill="#ffffff">php</text></g></g>
+    <g class="b6"><g clip-path="url(#botcut)"><circle r="25" fill="#777BB4"/><circle r="25" fill="url(#shine)"/><text x="0" y="4.3" text-anchor="middle" font-family="Segoe UI,Helvetica,Arial,sans-serif" font-weight="800" font-size="12" fill="#ffffff">php</text></g></g>
+    <line class="c6" x1="-42" y1="30" x2="42" y2="-30" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="90 90" filter="url(#glow)"/>
+  </g>
+  <text class="p6" text-anchor="middle" font-family="Segoe UI,Helvetica,Arial,sans-serif" font-weight="800" font-size="15" fill="#ffffff" stroke="#0b1020" stroke-width="3" paint-order="stroke">PHP +1</text>
+  <g class="r7">
+    <g class="s7"><circle cx="-30" cy="-8" r="4" fill="#F7DF1E"/><circle cx="28" cy="-14" r="3.5" fill="#F7DF1E"/><circle cx="-14" cy="26" r="3" fill="#F7DF1E"/><circle cx="20" cy="22" r="4.5" fill="#F7DF1E"/><circle cx="2" cy="-32" r="3" fill="#F7DF1E"/><circle cx="-34" cy="18" r="2.5" fill="#F7DF1E"/><circle cx="36" cy="10" r="2.5" fill="#F7DF1E"/></g>
+    <g class="a7"><g clip-path="url(#topcut)"><circle r="25" fill="#F7DF1E"/><circle r="25" fill="url(#shine)"/><text x="0" y="5.4" text-anchor="middle" font-family="Segoe UI,Helvetica,Arial,sans-serif" font-weight="800" font-size="15" fill="#1a1a1a">JS</text></g></g>
+    <g class="b7"><g clip-path="url(#botcut)"><circle r="25" fill="#F7DF1E"/><circle r="25" fill="url(#shine)"/><text x="0" y="5.4" text-anchor="middle" font-family="Segoe UI,Helvetica,Arial,sans-serif" font-weight="800" font-size="15" fill="#1a1a1a">JS</text></g></g>
+    <line class="c7" x1="-42" y1="30" x2="42" y2="-30" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="90 90" filter="url(#glow)"/>
+  </g>
+  <text class="p7" text-anchor="middle" font-family="Segoe UI,Helvetica,Arial,sans-serif" font-weight="800" font-size="15" fill="#F7DF1E" stroke="#0b1020" stroke-width="3" paint-order="stroke">JavaScript +1</text>
+
+  <g class="ninja">
+    <ellipse cx="0" cy="2" rx="18" ry="4" fill="#000" opacity=".35"/>
+    <path d="M-7,-18 L-11,0 M6,-18 L11,0" stroke="#111827" stroke-width="7" stroke-linecap="round"/>
+    <path d="M-12,-40 q12,-8 24,0 l-2,24 q-10,4 -20,0 Z" fill="#111827"/>
+    <path d="M-12,-26 h24" stroke="#EA580C" stroke-width="4"/>
+    <circle cx="0" cy="-52" r="13" fill="#111827"/>
+    <rect x="-11" y="-56" width="22" height="7" rx="3.5" fill="#f2d2b6"/>
+    <circle cx="-4" cy="-52.5" r="1.7" fill="#111"/><circle cx="5" cy="-52.5" r="1.7" fill="#111"/>
+    <path d="M-13,-60 h26" stroke="#E11D48" stroke-width="4"/>
+    <path class="tail" d="M-6,-46 q-14,-6 -26,4 q-8,6 -18,2" stroke="#E11D48" stroke-width="3.5" fill="none" stroke-linecap="round" transform="translate(-6,-14)"/>
+    <g transform="translate(9,-34)"><g class="sword">
+      <path d="M0,0 L10,0" stroke="#111827" stroke-width="7" stroke-linecap="round"/>
+      <rect x="8" y="-4" width="3" height="8" fill="#FBBF24"/>
+      <path d="M11,-1.6 L58,-1.6 L63,0 L58,1.6 L11,1.6 Z" fill="#e5edf7" stroke="#9fb3c8" stroke-width=".6"/>
+    </g></g>
+  </g>
+<g font-family="Segoe UI,Helvetica,Arial,sans-serif" text-anchor="end">
+  <text x="854" y="34" font-size="12" font-weight="700" fill="#7dd3fc" letter-spacing="2">COMMITS SLICED</text>
+  <text x="854" y="68" font-size="32" font-weight="900" fill="#ffffff">6,528</text>
+  <text x="854" y="88" font-size="12" fill="#9fb3c8">6,221 this year · private repos included</text>
+</g>
+</svg>
