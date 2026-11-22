@@ -231,6 +231,9 @@ def ninja(delay, opacity, tint=""):
             f'<g class="face"{dl}>{fig}</g></g></g></g></g>')
 
 
+START_G = []   # the ninja's spot at the start of each move, filled by choreograph()
+
+
 def choreograph(g=None):
     """Turns EVENTS into orb flights and the ninja's keyframes. Returns (orbs, words, star throws, ninja frames).
     The ninja starts where the round ends, so the loop joins up: a first pass finds that spot."""
@@ -238,8 +241,10 @@ def choreograph(g=None):
         g = choreograph(120)[-1]
     orbs, words, stars = [], [], []
     pos, flip, face, sword = [], [], [], []
+    START_G.clear()
     for i, ev in enumerate(EVENTS):
         t0 = 0.05 + i * SLOT
+        START_G.append(g)
         tc = t0 + 0.45
         how = ev[0]
         if how in ("leap", "star"):
@@ -481,41 +486,77 @@ def boss(css, shake, flash):
 LIFE = [("😴", "SLEEP"), ("🎉", "WEEKENDS"), ("👥", "FRIENDS"), ("❤️", "LOVE"), ("🧠", "SANITY")]
 
 
-def life(css, times):
-    """The LIFE inventory under the rank. At each time in `times` the next item flies off with a LOST banner and is crossed out."""
+def life(css, losses):
+    """The LIFE inventory under the rank. At each (time, x, y) in `losses` the next item rises out of the ninja's body
+    at (x, y), drifts away and fades; a LOST banner shows and the item is crossed out."""
     out = ['<text x="26" y="106" font-family="Segoe UI,Helvetica,Arial,sans-serif" font-size="10" font-weight="700" fill="#fda4af" letter-spacing="1.5">LIFE</text>']
-    for k, ((icon, name), t) in enumerate(zip(LIFE, times)):
+    for k, ((icon, name), (t, bx, by)) in enumerate(zip(LIFE, losses)):
         x = 72 + k * 40
         css.append(kf(f"have{k}", [(t, "opacity:1"), (t + .15, "opacity:.22")], loop=False, first="opacity:1")
                    + f" .have{k}{{animation:have{k} {T}s infinite linear}}")
         css.append(kf(f"strike{k}", [(t + .1, "transform: scaleX(0)"), (t + .3, "transform: scaleX(1)")], loop=False, first="transform: scaleX(0)")
                    + f" .strike{k}{{animation:strike{k} {T}s infinite ease-out}}")
-        css.append(kf(f"gone{k}", [(t - .001, f"transform: translate({x}px,100px) scale(1); opacity:0"),
-                                   (t, f"transform: translate({x}px,100px) scale(1); opacity:1"),
-                                   (t + .35, f"transform: translate({W // 2 - 70}px,112px) scale(2.2); opacity:1"),
-                                   (t + 1.1, f"transform: translate({W // 2 - 70}px,92px) scale(2.4); opacity:0")], loop=False)
+        css.append(kf(f"gone{k}", [(t - .001, f"transform: translate({bx}px,{by}px) scale(.6); opacity:0"),
+                                   (t + .05, f"transform: translate({bx}px,{by - 12}px) scale(1.3); opacity:1"),
+                                   (t + .8, f"transform: translate({bx + 18}px,{by - 70}px) scale(1.7); opacity:.9"),
+                                   (t + 1.8, f"transform: translate({bx + 40}px,{by - 135}px) scale(1.9); opacity:0")], loop=False)
                    + f" .gone{k}{{animation:gone{k} {T}s infinite ease-out}}")
+        css.append(kf(f"lostt{k}", [(t, "opacity:0"), (t + .1, "opacity:1"), (t + 1.1, "opacity:1"), (t + 1.6, "opacity:0")], loop=False)
+                   + f" .lostt{k}{{animation:lostt{k} {T}s infinite linear}}")
         css.append(kf(f"lost{k}", [(t + .2, "transform: scale(.4); opacity:0"), (t + .32, "transform: scale(1.15); opacity:1"),
                                    (t + .45, "transform: scale(1); opacity:1"), (t + 1.1, "transform: scale(1); opacity:0")], loop=False)
                    + f" .lost{k}{{animation:lost{k} {T}s infinite ease-out}}")
         out.append(f'''<g transform="translate({x},100)"><text class="have{k}" text-anchor="middle" y="6" font-size="17">{icon}</text>
     <text class="have{k}" text-anchor="middle" y="19" font-family="Segoe UI,Helvetica,Arial,sans-serif" font-size="7" font-weight="700" fill="#cbd5e1">{name}</text>
     <path class="strike{k}" d="M-11,-9 L11,9" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round" transform-origin="-11 -9"/></g>
-  <text class="gone{k}" opacity="0" text-anchor="middle" y="6" font-size="17">{icon}</text>
+  <g class="gone{k}" opacity="0"><circle r="15" fill="#fda4af" opacity=".25" filter="url(#glow)"/><text text-anchor="middle" y="6" font-size="17">{icon}</text>
+    <text class="lostt{k}" y="-18" text-anchor="middle" font-family="Segoe UI,Helvetica,Arial,sans-serif" font-size="7" font-weight="800" fill="#fda4af">{name.lower()}</text></g>
   <g transform="translate({W // 2},120)"><g class="lost{k}" opacity="0" text-anchor="middle" font-family="Impact,Segoe UI Black,Arial Black,sans-serif" font-style="italic">
     <text font-size="22" fill="#fda4af" stroke="#1f0510" stroke-width="5" paint-order="stroke">LOST: {name}</text></g></g>''')
     return "".join(out)
 
 
-def hurt_fx(css):
-    """The main ninja blinks and the screen flashes red each time he is hit."""
+PESTS = ["3AM ON-CALL", "DEADLINE", "CRUNCH MODE"]   # the small bugs that take sleep, weekends and friends
+
+
+def pests(css, shake):
+    """Three small flying bugs, each charging the ninja while he stands between moves. Returns (svg, [(hit time, x, y)])."""
+    G = GROUND
+    out, hits = [], []
+    for k, label in enumerate(PESTS):
+        i = len(EVENTS) * (k + 1) // 4
+        x = START_G[i]
+        t = 0.05 + i * SLOT + 0.08                       # he has just landed and stands at x
+        side = 1 if x < W / 2 else -1                     # comes from the side with more room
+        sx = W + 40 if side == 1 else -40
+        css.append(kf(f"pest{k}", [(t - .401, f"transform: translate({sx}px,{G - 70}px) scale(1); opacity:0"),
+                                   (t - .4, f"transform: translate({sx}px,{G - 70}px) scale(1); opacity:1"),
+                                   (t - .2, f"transform: translate({(sx + x) // 2}px,{G - 34}px) scale(1); opacity:1"),
+                                   (t, f"transform: translate({x + side * 14}px,{G - 46}px) scale(1); opacity:1"),
+                                   (t + .14, f"transform: translate({x + side * 22}px,{G - 52}px) scale(1.8); opacity:0")], loop=False)
+                   + f" .pest{k}{{animation:pest{k} {T}s infinite linear}}")
+        shake += [(t - 0.001, "transform: translate(0,0)"), (t + 0.03, "transform: translate(-6px,3px)"), (t + 0.07, "transform: translate(5px,-2px)"),
+                  (t + 0.11, "transform: translate(0,0)")]
+        out.append(f'''<g class="pest{k}" opacity="0"><g transform="scale({side},1)">
+    <g class="wing"><ellipse cx="3" cy="-10" rx="10" ry="5" fill="#fecaca" opacity=".75"/></g>
+    <ellipse rx="14" ry="9" fill="#b91c1c"/><path d="M2,-9 L2,9" stroke="#7f1d1d" stroke-width="1.5"/><circle cx="-12" cy="-1" r="7.5" fill="#450a0a"/>
+    <circle cx="-15" cy="-3" r="2.4" fill="#fde047"/><circle cx="-9" cy="-3" r="2.4" fill="#fde047"/>
+    <path d="M-17,-7 L-12,-5 M-6,-7 L-10,-5" stroke="#111" stroke-width="1.6"/>
+    <path d="M-14,-8 q-4,-8 -10,-9 M-10,-8 q0,-8 -4,-11" stroke="#450a0a" stroke-width="1.5" fill="none"/></g>
+    <text y="-22" text-anchor="middle" font-family="Impact,Arial Black,sans-serif" font-size="11" fill="#fca5a5" stroke="#1f0505" stroke-width="3" paint-order="stroke">{label}</text></g>''')
+        hits.append((t, x, G - 44))
+    css.append("@keyframes flap { 0%,100% { transform: scaleY(1) } 50% { transform: scaleY(.25) } } .wing{animation:flap .12s infinite linear}")
+    return "".join(out), hits
+
+
+def hurt_fx(css, times):
+    """The main ninja blinks and the screen flashes red each time he is hit (times are absolute)."""
     hurt = []
-    for x in HURT_AT:
-        t = TB + x
+    for t in times:
         hurt += [(t, "opacity:1"), (t + .06, "opacity:.25"), (t + .12, "opacity:1"), (t + .18, "opacity:.25"), (t + .24, "opacity:1"),
                  (t + .3, "opacity:.25"), (t + .4, "opacity:1")]
     css.append(kf("hurt", hurt, loop=False, first="opacity:1") + f" .hurt{{animation:hurt {T}s infinite step-end}}")
-    reds = [f for x in HURT_AT for f in [(TB + x - .001, "opacity:0"), (TB + x + .02, "opacity:.3"), (TB + x + .2, "opacity:0")]]
+    reds = [f for t in times for f in [(t - .001, "opacity:0"), (t + .02, "opacity:.3"), (t + .2, "opacity:0")]]
     css.append(kf("rflash", reds, loop=False, first="opacity:0") + f" .rflash{{animation:rflash {T}s infinite linear}}")
 
 def build(total, year, streak, mix):
@@ -598,6 +639,11 @@ def build(total, year, streak, mix):
         body.append(f'<g class="st{i}"><g class="spin"><path d="M0,-11 L3,-3 L11,0 L3,3 L0,11 L-3,3 L-11,0 L-3,-3 Z" fill="#cbd5e1" stroke="#64748b" stroke-width=".8"/><circle r="2.2" fill="#1e293b"/></g></g>')
 
     body.append(boss(css, shake, flash))
+    pest_svg, pest_hits = pests(css, shake)
+    losses = pest_hits + [(TB + HURT_AT[0] + 0.02, 420, GROUND - 44), (TB + HURT_AT[1] + 0.02, 430, GROUND - 44)]
+    hurt_fx(css, [t for t, _, _ in pest_hits] + [TB + x for x in HURT_AT])
+    lives = life(css, losses)
+    body.append(pest_svg)
 
     # game clear banner
     tg = cut_times[-1] + 0.45
@@ -607,8 +653,7 @@ def build(total, year, streak, mix):
     total_s, year_s = f"{total:,}", f"{year:,}"
     body.append(f'''<g transform="translate({W // 2},150)"><g class="clear" font-family="Impact,Segoe UI Black,Arial Black,sans-serif" text-anchor="middle" font-style="italic">
     <text y="0" font-size="40" fill="#fbbf24" stroke="#7c2d12" stroke-width="6" paint-order="stroke">GAME CLEAR</text>
-    <text y="34" font-size="20" fill="#ffffff" stroke="#0b1020" stroke-width="4" paint-order="stroke">{total_s} CONTRIBUTIONS SLICED</text>
-    <text y="60" font-size="14" font-style="normal" font-family="Segoe UI,Helvetica,Arial,sans-serif" font-weight="700" fill="#fda4af" stroke="#0b1020" stroke-width="3" paint-order="stroke">Lost along the way: sleep, weekends, friends, love, sanity. Still standing.</text></g></g>''')
+    <text y="34" font-size="20" fill="#ffffff" stroke="#0b1020" stroke-width="4" paint-order="stroke">{total_s} CONTRIBUTIONS SLICED</text></g></g>''')
 
     score_css, score = score_strip(values, cut_times, total)
     css += score_css
@@ -628,10 +673,6 @@ def build(total, year, streak, mix):
 .star {{ animation: twinkle 3s ease-in-out infinite }}
 @media (prefers-reduced-motion: reduce) {{ * {{ animation-duration: 0s !important }} }}""")
 
-    hurt_fx(css)
-    lang_cuts = [t for t in cut_times if t < TB]
-    losses = [lang_cuts[len(lang_cuts) * k // 4] + 0.3 for k in (1, 2, 3)] + [TB + x + 0.1 for x in HURT_AT]
-    lives = life(css, losses)
     belt_name, belt_col = belt(streak)
     level = total // 250 + 1
     # the belt shows the streak; a black belt gets a gold trim so it reads on the black outfit
