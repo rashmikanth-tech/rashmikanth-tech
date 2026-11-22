@@ -477,18 +477,38 @@ def boss(css, shake, flash):
     <text y="26" font-size="16" fill="#fecaca" stroke="#1f0505" stroke-width="4" paint-order="stroke">BOSS APPROACHING: THE BUG</text></g></g>'''
 
 
-def hearts(css):
-    """The ninja's three lives: one lost to the charge, one to the shockwave; the main ninja blinks when hit."""
-    out = []
-    for k in range(3):
-        lost = HURT_AT[2 - k] if k > 0 else None     # hearts 2 and 1 (from the right) are lost, the first survives
-        if lost is not None:
-            t = TB + lost
-            css.append(kf(f"heart{k}", [(t, "opacity:1"), (t + .06, "opacity:.1"), (t + .12, "opacity:1"), (t + .18, "opacity:.1"),
-                                        (t + .24, "opacity:1"), (t + .32, "opacity:0")], loop=False, first="opacity:1")
-                       + f" .heart{k}{{animation:heart{k} {T}s infinite step-end}}")
-        out.append(f'<path class="heart{k}" transform="translate({30 + k * 22},104)" d="M0,4 C-8,-4 -8,-10 -3,-10 C-1,-10 0,-8 0,-7 '
-                   f'C0,-8 1,-10 3,-10 C8,-10 8,-4 0,4 Z" fill="#ef4444" stroke="#fecaca" stroke-width="1"/>')
+# What the journey costs: lost one by one, the first three during the languages, the last two to the boss.
+LIFE = [("😴", "SLEEP"), ("🎉", "WEEKENDS"), ("👥", "FRIENDS"), ("❤️", "LOVE"), ("🧠", "SANITY")]
+
+
+def life(css, times):
+    """The LIFE inventory under the rank. At each time in `times` the next item flies off with a LOST banner and is crossed out."""
+    out = ['<text x="26" y="106" font-family="Segoe UI,Helvetica,Arial,sans-serif" font-size="10" font-weight="700" fill="#fda4af" letter-spacing="1.5">LIFE</text>']
+    for k, ((icon, name), t) in enumerate(zip(LIFE, times)):
+        x = 72 + k * 40
+        css.append(kf(f"have{k}", [(t, "opacity:1"), (t + .15, "opacity:.22")], loop=False, first="opacity:1")
+                   + f" .have{k}{{animation:have{k} {T}s infinite linear}}")
+        css.append(kf(f"strike{k}", [(t + .1, "transform: scaleX(0)"), (t + .3, "transform: scaleX(1)")], loop=False, first="transform: scaleX(0)")
+                   + f" .strike{k}{{animation:strike{k} {T}s infinite ease-out}}")
+        css.append(kf(f"gone{k}", [(t - .001, f"transform: translate({x}px,100px) scale(1); opacity:0"),
+                                   (t, f"transform: translate({x}px,100px) scale(1); opacity:1"),
+                                   (t + .35, f"transform: translate({W // 2 - 70}px,112px) scale(2.2); opacity:1"),
+                                   (t + 1.1, f"transform: translate({W // 2 - 70}px,92px) scale(2.4); opacity:0")], loop=False)
+                   + f" .gone{k}{{animation:gone{k} {T}s infinite ease-out}}")
+        css.append(kf(f"lost{k}", [(t + .2, "transform: scale(.4); opacity:0"), (t + .32, "transform: scale(1.15); opacity:1"),
+                                   (t + .45, "transform: scale(1); opacity:1"), (t + 1.1, "transform: scale(1); opacity:0")], loop=False)
+                   + f" .lost{k}{{animation:lost{k} {T}s infinite ease-out}}")
+        out.append(f'''<g transform="translate({x},100)"><text class="have{k}" text-anchor="middle" y="6" font-size="17">{icon}</text>
+    <text class="have{k}" text-anchor="middle" y="19" font-family="Segoe UI,Helvetica,Arial,sans-serif" font-size="7" font-weight="700" fill="#cbd5e1">{name}</text>
+    <path class="strike{k}" d="M-11,-9 L11,9" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round" transform-origin="-11 -9"/></g>
+  <text class="gone{k}" opacity="0" text-anchor="middle" y="6" font-size="17">{icon}</text>
+  <g transform="translate({W // 2},120)"><g class="lost{k}" opacity="0" text-anchor="middle" font-family="Impact,Segoe UI Black,Arial Black,sans-serif" font-style="italic">
+    <text font-size="22" fill="#fda4af" stroke="#1f0510" stroke-width="5" paint-order="stroke">LOST: {name}</text></g></g>''')
+    return "".join(out)
+
+
+def hurt_fx(css):
+    """The main ninja blinks and the screen flashes red each time he is hit."""
     hurt = []
     for x in HURT_AT:
         t = TB + x
@@ -497,7 +517,6 @@ def hearts(css):
     css.append(kf("hurt", hurt, loop=False, first="opacity:1") + f" .hurt{{animation:hurt {T}s infinite step-end}}")
     reds = [f for x in HURT_AT for f in [(TB + x - .001, "opacity:0"), (TB + x + .02, "opacity:.3"), (TB + x + .2, "opacity:0")]]
     css.append(kf("rflash", reds, loop=False, first="opacity:0") + f" .rflash{{animation:rflash {T}s infinite linear}}")
-    return "".join(out)
 
 def build(total, year, streak, mix):
     orbs, words, stars, (pos, flip, face, sword), _ = choreograph()
@@ -588,7 +607,8 @@ def build(total, year, streak, mix):
     total_s, year_s = f"{total:,}", f"{year:,}"
     body.append(f'''<g transform="translate({W // 2},150)"><g class="clear" font-family="Impact,Segoe UI Black,Arial Black,sans-serif" text-anchor="middle" font-style="italic">
     <text y="0" font-size="40" fill="#fbbf24" stroke="#7c2d12" stroke-width="6" paint-order="stroke">GAME CLEAR</text>
-    <text y="34" font-size="20" fill="#ffffff" stroke="#0b1020" stroke-width="4" paint-order="stroke">{total_s} CONTRIBUTIONS SLICED</text></g></g>''')
+    <text y="34" font-size="20" fill="#ffffff" stroke="#0b1020" stroke-width="4" paint-order="stroke">{total_s} CONTRIBUTIONS SLICED</text>
+    <text y="60" font-size="14" font-style="normal" font-family="Segoe UI,Helvetica,Arial,sans-serif" font-weight="700" fill="#fda4af" stroke="#0b1020" stroke-width="3" paint-order="stroke">Lost along the way: sleep, weekends, friends, love, sanity. Still standing.</text></g></g>''')
 
     score_css, score = score_strip(values, cut_times, total)
     css += score_css
@@ -608,7 +628,10 @@ def build(total, year, streak, mix):
 .star {{ animation: twinkle 3s ease-in-out infinite }}
 @media (prefers-reduced-motion: reduce) {{ * {{ animation-duration: 0s !important }} }}""")
 
-    lives = hearts(css)
+    hurt_fx(css)
+    lang_cuts = [t for t in cut_times if t < TB]
+    losses = [lang_cuts[len(lang_cuts) * k // 4] + 0.3 for k in (1, 2, 3)] + [TB + x + 0.1 for x in HURT_AT]
+    lives = life(css, losses)
     belt_name, belt_col = belt(streak)
     level = total // 250 + 1
     # the belt shows the streak; a black belt gets a gold trim so it reads on the black outfit

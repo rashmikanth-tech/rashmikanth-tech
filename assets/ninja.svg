@@ -226,10 +226,28 @@
 @keyframes twinkle { 0%,100% { opacity:.25 } 50% { opacity:1 } }
 .star { animation: twinkle 3s ease-in-out infinite }
 @media (prefers-reduced-motion: reduce) { * { animation-duration: 0s !important } }
-@keyframes heart1 { 0% { opacity:1 } 84.855% { opacity:1 } 85.087% { opacity:.1 } 85.318% { opacity:1 } 85.549% { opacity:.1 } 85.780% { opacity:1 } 86.089% { opacity:0 } 100% { opacity:0 } } .heart1{animation:heart1 25.950000000000003s infinite step-end}
-@keyframes heart2 { 0% { opacity:1 } 66.012% { opacity:1 } 66.243% { opacity:.1 } 66.474% { opacity:1 } 66.705% { opacity:.1 } 66.936% { opacity:1 } 67.245% { opacity:0 } 100% { opacity:0 } } .heart2{animation:heart2 25.950000000000003s infinite step-end}
 @keyframes hurt { 0% { opacity:1 } 66.012% { opacity:1 } 66.243% { opacity:.25 } 66.474% { opacity:1 } 66.705% { opacity:.25 } 66.936% { opacity:1 } 67.168% { opacity:.25 } 67.553% { opacity:1 } 84.855% { opacity:1 } 85.087% { opacity:.25 } 85.318% { opacity:1 } 85.549% { opacity:.25 } 85.780% { opacity:1 } 86.012% { opacity:.25 } 86.397% { opacity:1 } 100% { opacity:1 } } .hurt{animation:hurt 25.950000000000003s infinite step-end}
-@keyframes rflash { 0% { opacity:0 } 66.008% { opacity:0 } 66.089% { opacity:.3 } 66.782% { opacity:0 } 84.852% { opacity:0 } 84.933% { opacity:.3 } 85.626% { opacity:0 } 100% { opacity:0 } } .rflash{animation:rflash 25.950000000000003s infinite linear}</style>
+@keyframes rflash { 0% { opacity:0 } 66.008% { opacity:0 } 66.089% { opacity:.3 } 66.782% { opacity:0 } 84.852% { opacity:0 } 84.933% { opacity:.3 } 85.626% { opacity:0 } 100% { opacity:0 } } .rflash{animation:rflash 25.950000000000003s infinite linear}
+@keyframes have0 { 0% { opacity:1 } 14.644% { opacity:1 } 15.222% { opacity:.22 } 100% { opacity:.22 } } .have0{animation:have0 25.950000000000003s infinite linear}
+@keyframes strike0 { 0% { transform: scaleX(0) } 15.029% { transform: scaleX(0) } 15.800% { transform: scaleX(1) } 100% { transform: scaleX(1) } } .strike0{animation:strike0 25.950000000000003s infinite ease-out}
+@keyframes gone0 { 0% { transform: translate(72px,100px) scale(1); opacity:0 } 14.640% { transform: translate(72px,100px) scale(1); opacity:0 } 14.644% { transform: translate(72px,100px) scale(1); opacity:1 } 15.992% { transform: translate(370px,112px) scale(2.2); opacity:1 } 18.882% { transform: translate(370px,92px) scale(2.4); opacity:0 } 100% { transform: translate(370px,92px) scale(2.4); opacity:0 } } .gone0{animation:gone0 25.950000000000003s infinite ease-out}
+@keyframes lost0 { 0% { transform: scale(.4); opacity:0 } 15.414% { transform: scale(.4); opacity:0 } 15.877% { transform: scale(1.15); opacity:1 } 16.378% { transform: scale(1); opacity:1 } 18.882% { transform: scale(1); opacity:0 } 100% { transform: scale(1); opacity:0 } } .lost0{animation:lost0 25.950000000000003s infinite ease-out}
+@keyframes have1 { 0% { opacity:1 } 26.204% { opacity:1 } 26.782% { opacity:.22 } 100% { opacity:.22 } } .have1{animation:have1 25.950000000000003s infinite linear}
+@keyframes strike1 { 0% { transform: scaleX(0) } 26.590% { transform: scaleX(0) } 27.360% { transform: scaleX(1) } 100% { transform: scaleX(1) } } .strike1{animation:strike1 25.950000000000003s infinite ease-out}
+@keyframes gone1 { 0% { transform: translate(112px,100px) scale(1); opacity:0 } 26.200% { transform: translate(112px,100px) scale(1); opacity:0 } 26.204% { transform: translate(112px,100px) scale(1); opacity:1 } 27.553% { transform: translate(370px,112px) scale(2.2); opacity:1 } 30.443% { transform: translate(370px,92px) scale(2.4); opacity:0 } 100% { transform: translate(370px,92px) scale(2.4); opacity:0 } } .gone1{animation:gone1 25.950000000000003s infinite ease-out}
+@keyframes lost1 { 0% { transform: scale(.4); opacity:0 } 26.975% { transform: scale(.4); opacity:0 } 27.437% { transform: scale(1.15); opacity:1 } 27.938% { transform: scale(1); opacity:1 } 30.443% { transform: scale(1); opacity:0 } 100% { transform: scale(1); opacity:0 } } .lost1{animation:lost1 25.950000000000003s infinite ease-out}
+@keyframes have2 { 0% { opacity:1 } 37.765% { opacity:1 } 38.343% { opacity:.22 } 100% { opacity:.22 } } .have2{animation:have2 25.950000000000003s infinite linear}
+@keyframes strike2 { 0% { transform: scaleX(0) } 38.150% { transform: scaleX(0) } 38.921% { transform: scaleX(1) } 100% { transform: scaleX(1) } } .strike2{animation:strike2 25.950000000000003s infinite ease-out}
+@keyframes gone2 { 0% { transform: translate(152px,100px) scale(1); opacity:0 } 37.761% { transform: translate(152px,100px) scale(1); opacity:0 } 37.765% { transform: translate(152px,100px) scale(1); opacity:1 } 39.114% { transform: translate(370px,112px) scale(2.2); opacity:1 } 42.004% { transform: translate(370px,92px) scale(2.4); opacity:0 } 100% { transform: translate(370px,92px) scale(2.4); opacity:0 } } .gone2{animation:gone2 25.950000000000003s infinite ease-out}
+@keyframes lost2 { 0% { transform: scale(.4); opacity:0 } 38.536% { transform: scale(.4); opacity:0 } 38.998% { transform: scale(1.15); opacity:1 } 39.499% { transform: scale(1); opacity:1 } 42.004% { transform: scale(1); opacity:0 } 100% { transform: scale(1); opacity:0 } } .lost2{animation:lost2 25.950000000000003s infinite ease-out}
+@keyframes have3 { 0% { opacity:1 } 66.397% { opacity:1 } 66.975% { opacity:.22 } 100% { opacity:.22 } } .have3{animation:have3 25.950000000000003s infinite linear}
+@keyframes strike3 { 0% { transform: scaleX(0) } 66.782% { transform: scaleX(0) } 67.553% { transform: scaleX(1) } 100% { transform: scaleX(1) } } .strike3{animation:strike3 25.950000000000003s infinite ease-out}
+@keyframes gone3 { 0% { transform: translate(192px,100px) scale(1); opacity:0 } 66.393% { transform: translate(192px,100px) scale(1); opacity:0 } 66.397% { transform: translate(192px,100px) scale(1); opacity:1 } 67.746% { transform: translate(370px,112px) scale(2.2); opacity:1 } 70.636% { transform: translate(370px,92px) scale(2.4); opacity:0 } 100% { transform: translate(370px,92px) scale(2.4); opacity:0 } } .gone3{animation:gone3 25.950000000000003s infinite ease-out}
+@keyframes lost3 { 0% { transform: scale(.4); opacity:0 } 67.168% { transform: scale(.4); opacity:0 } 67.630% { transform: scale(1.15); opacity:1 } 68.131% { transform: scale(1); opacity:1 } 70.636% { transform: scale(1); opacity:0 } 100% { transform: scale(1); opacity:0 } } .lost3{animation:lost3 25.950000000000003s infinite ease-out}
+@keyframes have4 { 0% { opacity:1 } 85.241% { opacity:1 } 85.819% { opacity:.22 } 100% { opacity:.22 } } .have4{animation:have4 25.950000000000003s infinite linear}
+@keyframes strike4 { 0% { transform: scaleX(0) } 85.626% { transform: scaleX(0) } 86.397% { transform: scaleX(1) } 100% { transform: scaleX(1) } } .strike4{animation:strike4 25.950000000000003s infinite ease-out}
+@keyframes gone4 { 0% { transform: translate(232px,100px) scale(1); opacity:0 } 85.237% { transform: translate(232px,100px) scale(1); opacity:0 } 85.241% { transform: translate(232px,100px) scale(1); opacity:1 } 86.590% { transform: translate(370px,112px) scale(2.2); opacity:1 } 89.480% { transform: translate(370px,92px) scale(2.4); opacity:0 } 100% { transform: translate(370px,92px) scale(2.4); opacity:0 } } .gone4{animation:gone4 25.950000000000003s infinite ease-out}
+@keyframes lost4 { 0% { transform: scale(.4); opacity:0 } 86.012% { transform: scale(.4); opacity:0 } 86.474% { transform: scale(1.15); opacity:1 } 86.975% { transform: scale(1); opacity:1 } 89.480% { transform: scale(1); opacity:0 } 100% { transform: scale(1); opacity:0 } } .lost4{animation:lost4 25.950000000000003s infinite ease-out}</style>
 <g clip-path="url(#frame)">
 <rect width="880" height="320" fill="url(#sky)"/>
 <g class="shake">
@@ -506,11 +524,37 @@
     <text font-size="34" fill="#ef4444" stroke="#1f0505" stroke-width="5" paint-order="stroke">WARNING!</text>
     <text y="26" font-size="16" fill="#fecaca" stroke="#1f0505" stroke-width="4" paint-order="stroke">BOSS APPROACHING: THE BUG</text></g></g><g transform="translate(440,150)"><g class="clear" font-family="Impact,Segoe UI Black,Arial Black,sans-serif" text-anchor="middle" font-style="italic">
     <text y="0" font-size="40" fill="#fbbf24" stroke="#7c2d12" stroke-width="6" paint-order="stroke">GAME CLEAR</text>
-    <text y="34" font-size="20" fill="#ffffff" stroke="#0b1020" stroke-width="4" paint-order="stroke">6,535 CONTRIBUTIONS SLICED</text></g></g>
+    <text y="34" font-size="20" fill="#ffffff" stroke="#0b1020" stroke-width="4" paint-order="stroke">6,535 CONTRIBUTIONS SLICED</text>
+    <text y="60" font-size="14" font-style="normal" font-family="Segoe UI,Helvetica,Arial,sans-serif" font-weight="700" fill="#fda4af" stroke="#0b1020" stroke-width="3" paint-order="stroke">Lost along the way: sleep, weekends, friends, love, sanity. Still standing.</text></g></g>
 </g>
 <rect class="flash" width="880" height="320" fill="#fff" opacity="0"/>
 <rect class="rflash" width="880" height="320" fill="#ef4444" opacity="0"/>
-<path class="heart0" transform="translate(30,104)" d="M0,4 C-8,-4 -8,-10 -3,-10 C-1,-10 0,-8 0,-7 C0,-8 1,-10 3,-10 C8,-10 8,-4 0,4 Z" fill="#ef4444" stroke="#fecaca" stroke-width="1"/><path class="heart1" transform="translate(52,104)" d="M0,4 C-8,-4 -8,-10 -3,-10 C-1,-10 0,-8 0,-7 C0,-8 1,-10 3,-10 C8,-10 8,-4 0,4 Z" fill="#ef4444" stroke="#fecaca" stroke-width="1"/><path class="heart2" transform="translate(74,104)" d="M0,4 C-8,-4 -8,-10 -3,-10 C-1,-10 0,-8 0,-7 C0,-8 1,-10 3,-10 C8,-10 8,-4 0,4 Z" fill="#ef4444" stroke="#fecaca" stroke-width="1"/>
+<text x="26" y="106" font-family="Segoe UI,Helvetica,Arial,sans-serif" font-size="10" font-weight="700" fill="#fda4af" letter-spacing="1.5">LIFE</text><g transform="translate(72,100)"><text class="have0" text-anchor="middle" y="6" font-size="17">😴</text>
+    <text class="have0" text-anchor="middle" y="19" font-family="Segoe UI,Helvetica,Arial,sans-serif" font-size="7" font-weight="700" fill="#cbd5e1">SLEEP</text>
+    <path class="strike0" d="M-11,-9 L11,9" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round" transform-origin="-11 -9"/></g>
+  <text class="gone0" opacity="0" text-anchor="middle" y="6" font-size="17">😴</text>
+  <g transform="translate(440,120)"><g class="lost0" opacity="0" text-anchor="middle" font-family="Impact,Segoe UI Black,Arial Black,sans-serif" font-style="italic">
+    <text font-size="22" fill="#fda4af" stroke="#1f0510" stroke-width="5" paint-order="stroke">LOST: SLEEP</text></g></g><g transform="translate(112,100)"><text class="have1" text-anchor="middle" y="6" font-size="17">🎉</text>
+    <text class="have1" text-anchor="middle" y="19" font-family="Segoe UI,Helvetica,Arial,sans-serif" font-size="7" font-weight="700" fill="#cbd5e1">WEEKENDS</text>
+    <path class="strike1" d="M-11,-9 L11,9" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round" transform-origin="-11 -9"/></g>
+  <text class="gone1" opacity="0" text-anchor="middle" y="6" font-size="17">🎉</text>
+  <g transform="translate(440,120)"><g class="lost1" opacity="0" text-anchor="middle" font-family="Impact,Segoe UI Black,Arial Black,sans-serif" font-style="italic">
+    <text font-size="22" fill="#fda4af" stroke="#1f0510" stroke-width="5" paint-order="stroke">LOST: WEEKENDS</text></g></g><g transform="translate(152,100)"><text class="have2" text-anchor="middle" y="6" font-size="17">👥</text>
+    <text class="have2" text-anchor="middle" y="19" font-family="Segoe UI,Helvetica,Arial,sans-serif" font-size="7" font-weight="700" fill="#cbd5e1">FRIENDS</text>
+    <path class="strike2" d="M-11,-9 L11,9" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round" transform-origin="-11 -9"/></g>
+  <text class="gone2" opacity="0" text-anchor="middle" y="6" font-size="17">👥</text>
+  <g transform="translate(440,120)"><g class="lost2" opacity="0" text-anchor="middle" font-family="Impact,Segoe UI Black,Arial Black,sans-serif" font-style="italic">
+    <text font-size="22" fill="#fda4af" stroke="#1f0510" stroke-width="5" paint-order="stroke">LOST: FRIENDS</text></g></g><g transform="translate(192,100)"><text class="have3" text-anchor="middle" y="6" font-size="17">❤️</text>
+    <text class="have3" text-anchor="middle" y="19" font-family="Segoe UI,Helvetica,Arial,sans-serif" font-size="7" font-weight="700" fill="#cbd5e1">LOVE</text>
+    <path class="strike3" d="M-11,-9 L11,9" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round" transform-origin="-11 -9"/></g>
+  <text class="gone3" opacity="0" text-anchor="middle" y="6" font-size="17">❤️</text>
+  <g transform="translate(440,120)"><g class="lost3" opacity="0" text-anchor="middle" font-family="Impact,Segoe UI Black,Arial Black,sans-serif" font-style="italic">
+    <text font-size="22" fill="#fda4af" stroke="#1f0510" stroke-width="5" paint-order="stroke">LOST: LOVE</text></g></g><g transform="translate(232,100)"><text class="have4" text-anchor="middle" y="6" font-size="17">🧠</text>
+    <text class="have4" text-anchor="middle" y="19" font-family="Segoe UI,Helvetica,Arial,sans-serif" font-size="7" font-weight="700" fill="#cbd5e1">SANITY</text>
+    <path class="strike4" d="M-11,-9 L11,9" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round" transform-origin="-11 -9"/></g>
+  <text class="gone4" opacity="0" text-anchor="middle" y="6" font-size="17">🧠</text>
+  <g transform="translate(440,120)"><g class="lost4" opacity="0" text-anchor="middle" font-family="Impact,Segoe UI Black,Arial Black,sans-serif" font-style="italic">
+    <text font-size="22" fill="#fda4af" stroke="#1f0510" stroke-width="5" paint-order="stroke">LOST: SANITY</text></g></g>
 <text x="864" y="308" text-anchor="end" font-family="Segoe UI,Helvetica,Arial,sans-serif" font-size="10.5" fill="#9fb3c8" opacity=".55">© Rashmikanth G R · github.com/rashmikanth-tech</text>
 <g font-family="Segoe UI,Helvetica,Arial,sans-serif">
   <text x="26" y="34" font-size="12" font-weight="700" fill="#7dd3fc" letter-spacing="2">NINJA RANK</text>
